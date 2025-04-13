@@ -49,6 +49,7 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 func _on_hit_box_hit_detected() -> void:
 	health -= 1
 	if(health <= 0):
-		get_parent().score += 1
+		GameManager.change_score(1)
+
 		queue_free()
 	

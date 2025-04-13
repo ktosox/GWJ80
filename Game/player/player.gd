@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-signal player_got_hit
+signal player_got_hit(damage)
 
 const SPEED = 300.0
 
-var HP = 3
-
+func _ready():
+	GameManager.current_player = self
+	
+	connect("player_got_hit",Callable(GameManager,"change_health"))
+	pass
 
 func _physics_process(delta: float) -> void:
 
@@ -17,6 +20,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hit_box_hit_detected() -> void:
-	HP -= 1
-	emit_signal("player_got_hit")
+	if $DamageAnimator.is_playing():
+		return
+	$DamageAnimator.play("damage")
+	emit_signal("player_got_hit",-1)
 	pass # Replace with function body.
