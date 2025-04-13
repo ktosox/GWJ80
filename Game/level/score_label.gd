@@ -1,5 +1,7 @@
 extends Label
 
+
+
 @onready var player: CharacterBody2D = %Player
 
 @onready var test_level: Node2D = $".."

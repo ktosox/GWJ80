@@ -2,6 +2,8 @@ extends RigidBody2D
 
 const speed = 120
 
+
+
 @export var target : Node2D
 
 var walk_towards_target = false
