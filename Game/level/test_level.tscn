@@ -52,7 +52,4 @@ tracked_player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_s65ib")]
 position = Vector2(594, 327)
 
-[node name="wave_timer" type="Timer" parent="."]
-wait_time = 5.0
-
 [connection signal="player_got_hit" from="Player" to="." method="_on_player_player_got_hit"]
