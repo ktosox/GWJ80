@@ -64,10 +64,13 @@ text = "3"
 script = ExtResource("4_22gpc")
 
 [node name="ScoreLabel" type="Label" parent="."]
+modulate = Color(0, 1, 1, 1)
 offset_left = 916.0
 offset_top = 11.0
 offset_right = 956.0
 offset_bottom = 34.0
+theme_override_font_sizes/font_size = 100
+text = "100"
 script = ExtResource("5_xowea")
 
 [connection signal="player_got_hit" from="Player" to="." method="_on_player_player_got_hit"]
