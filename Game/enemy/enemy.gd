@@ -35,5 +35,6 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 
 
 func _on_hit_box_hit_detected() -> void:
+	get_parent().score += 1
 	queue_free()
 	pass # Replace with function body.

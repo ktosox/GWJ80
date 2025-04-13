@@ -7,7 +7,8 @@ extends Node2D
 
 func _ready():
 	
-	spawn_enemy()
+	if(!get_parent().lose):
+		spawn_enemy()
 
 
 
