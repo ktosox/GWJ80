@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://blbrh6jiig0us"]
+
+[ext_resource type="Script" uid="uid://c45uj2cegruq6" path="res://enemy/enemy.gd" id="1_2mvqj"]
+[ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="2_ofsxj"]
+[ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_ppra6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scxef"]
+radius = 180.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofsxj"]
+
+[node name="Enemy" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_2mvqj")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_scxef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ofsxj")
+
+[node name="HitBox" parent="." instance=ExtResource("2_ppra6")]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0.1)
+width = 20.0
+default_color = Color(0.975862, 0, 0.218703, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Gun" parent="." instance=ExtResource("2_ofsxj")]
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]

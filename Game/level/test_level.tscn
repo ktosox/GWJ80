@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkx7vs2rcxeep"]
+
+[ext_resource type="Script" uid="uid://cuj6spgg582qj" path="res://level/test_level.gd" id="1_dsqel"]
+[ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_owtjd"]
+[ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="2_s65ib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amuej"]
+size = Vector2(1280, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsqel"]
+size = Vector2(100, 720)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_dsqel")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 22
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(640, -50)
+shape = SubResource("RectangleShape2D_amuej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1330, 360)
+shape = SubResource("RectangleShape2D_dsqel")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-50, 360)
+shape = SubResource("RectangleShape2D_dsqel")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(640, 770)
+shape = SubResource("RectangleShape2D_amuej")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 720, 1280, 720, 1280, 0, 0, 0)
+default_color = Color(0, 0.813436, 0.814732, 1)
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(379, 358)
+tracked_player = NodePath("../Player")
+
+[node name="EnemySpawner2" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(1487, 454)
+tracked_player = NodePath("../Player")
+
+[node name="EnemySpawner3" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(98, 915)
+tracked_player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_s65ib")]
+position = Vector2(594, 327)
+
+[connection signal="player_got_hit" from="Player" to="." method="_on_player_player_got_hit"]
