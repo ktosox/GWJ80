@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkx7vs2rcxeep"]
+[gd_scene load_steps=10 format=3 uid="uid://dkx7vs2rcxeep"]
 
 [ext_resource type="Script" uid="uid://cuj6spgg582qj" path="res://level/test_level.gd" id="1_dsqel"]
 [ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_owtjd"]
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="2_s65ib"]
+[ext_resource type="Script" uid="uid://cgur0gurwjr7a" path="res://level/health_label.gd" id="4_22gpc"]
+[ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="4_xowea"]
+[ext_resource type="Script" uid="uid://0bmc5q4p38yj" path="res://level/score_label.gd" id="5_xowea"]
+[ext_resource type="Script" uid="uid://hns0uj4tspbi" path="res://level/high_score_label.gd" id="7_v7kku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amuej"]
 size = Vector2(1280, 100)
@@ -52,4 +56,36 @@ tracked_player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_s65ib")]
 position = Vector2(594, 327)
 
+[node name="healthLabel" type="Label" parent="."]
+offset_right = 349.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xowea")
+theme_override_font_sizes/font_size = 100
+text = "3"
+script = ExtResource("4_22gpc")
+
+[node name="ScoreLabel" type="Label" parent="."]
+modulate = Color(0, 1, 1, 1)
+offset_left = 916.0
+offset_top = 11.0
+offset_right = 956.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_xowea")
+theme_override_font_sizes/font_size = 100
+text = "100"
+script = ExtResource("5_xowea")
+
+[node name="highScoreLabel" type="Label" parent="."]
+offset_left = 920.0
+offset_top = 91.0
+offset_right = 1156.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("4_xowea")
+theme_override_font_sizes/font_size = 100
+text = "1000"
+script = ExtResource("7_v7kku")
+
 [connection signal="player_got_hit" from="Player" to="." method="_on_player_player_got_hit"]
+[connection signal="player_got_hit" from="Player" to="healthLabel" method="_on_player_player_got_hit"]
