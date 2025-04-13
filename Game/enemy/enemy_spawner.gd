@@ -13,6 +13,7 @@ func _ready():
 
 
 func spawn_enemy():
+	
 	await get_tree().create_timer(0.8).timeout
 	var new_enemy = enemy_scene.instantiate() as RigidBody2D
 	new_enemy.global_position = global_position

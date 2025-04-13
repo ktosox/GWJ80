@@ -8,7 +8,7 @@ var score : int = 0
 var lose : bool = false
 
 func _ready() -> void:
-	#Global.save_game() this is to reset the data
+	#Global.save_game() 
 	Global.load_game()
 	
 
