@@ -7,11 +7,13 @@ extends Node2D
 
 func _ready():
 	
-	spawn_enemy()
+	if(!get_parent().lose):
+		spawn_enemy()
 
 
 
 func spawn_enemy():
+	
 	await get_tree().create_timer(0.8).timeout
 	var new_enemy = enemy_scene.instantiate() as RigidBody2D
 	new_enemy.global_position = global_position
