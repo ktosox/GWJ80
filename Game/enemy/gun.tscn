@@ -28,7 +28,7 @@ width = 9.0
 default_color = Color(0.136826, 0.136826, 0.136826, 1)
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
