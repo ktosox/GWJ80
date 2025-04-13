@@ -9,9 +9,7 @@ func _ready():
 	
 	if(!get_parent().lose):
 		spawn_enemy()
-
-
-
+		
 func spawn_enemy():
 	
 	await get_tree().create_timer(0.8).timeout
