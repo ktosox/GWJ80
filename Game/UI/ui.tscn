@@ -18,7 +18,8 @@ mouse_filter = 2
 
 [node name="Health" type="Label" parent="Layout"]
 layout_mode = 0
-offset_right = 349.0
+offset_left = 7.0
+offset_right = 356.0
 offset_bottom = 217.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hat8c")
@@ -28,31 +29,37 @@ script = ExtResource("1_e6gg6")
 
 [node name="HighScore" type="Label" parent="Layout"]
 layout_mode = 0
-offset_left = 920.0
+offset_left = 1040.0
 offset_top = 91.0
-offset_right = 1156.0
+offset_right = 1276.0
 offset_bottom = 193.0
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_hat8c")
 theme_override_font_sizes/font_size = 100
 text = "1000"
+horizontal_alignment = 2
 script = ExtResource("2_hat8c")
 
 [node name="CurrentScore" type="Label" parent="Layout"]
 modulate = Color(0, 1, 1, 1)
 layout_mode = 0
-offset_left = 916.0
-offset_top = 11.0
-offset_right = 1081.0
-offset_bottom = 113.0
+offset_left = 1115.0
+offset_top = 12.0
+offset_right = 1280.0
+offset_bottom = 114.0
 theme_override_fonts/font = ExtResource("1_hat8c")
 theme_override_font_sizes/font_size = 100
 text = "100"
+horizontal_alignment = 2
 script = ExtResource("3_3sbvi")
 
 [node name="Wave" type="Label" parent="Layout"]
 layout_mode = 0
-offset_top = 112.0
-offset_right = 40.0
-offset_bottom = 135.0
+offset_left = 15.0
+offset_top = 113.0
+offset_right = 92.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_hat8c")
+theme_override_font_sizes/font_size = 30
+text = "Wave: "
