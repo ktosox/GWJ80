@@ -64,11 +64,11 @@ position = Vector2(594, 327)
 [node name="UI" parent="." instance=ExtResource("4_owtjd")]
 
 [node name="wave_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]
