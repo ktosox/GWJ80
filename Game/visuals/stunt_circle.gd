@@ -11,7 +11,7 @@ var momentum
 var subtractAmount
 func deathAnimation():
 	direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-	momentum = randf_range(10,50)
+	momentum = randf_range(30,50)
 	subtractAmount = 0.03
 		
 		

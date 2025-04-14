@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://hns0uj4tspbi" path="res://UI/high_score_label.gd" id="2_hat8c"]
 [ext_resource type="Script" uid="uid://0bmc5q4p38yj" path="res://UI/score_label.gd" id="3_3sbvi"]
 [ext_resource type="Script" uid="uid://dl1yyqk770ci1" path="res://UI/health_bar.gd" id="5_nm1m0"]
-[ext_resource type="Texture2D" uid="uid://dsql3l37yc8gx" path="res://UI/pngheart.png" id="6_c7tqi"]
+[ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="7_c7tqi"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -73,16 +73,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.53, 0.53)
 script = ExtResource("5_nm1m0")
-heartNodes = [NodePath("Pngheart"), NodePath("Pngheart2"), NodePath("Pngheart3")]
+heartNodes = [NodePath("FixedSquare"), NodePath("FixedSquare2"), NodePath("FixedSquare3")]
 
-[node name="Pngheart" type="Sprite2D" parent="Layout/healthBar"]
-position = Vector2(18, 94)
-texture = ExtResource("6_c7tqi")
+[node name="FixedSquare" type="Sprite2D" parent="Layout/healthBar"]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(57.0755, 66.5094)
+scale = Vector2(0.0632075, 0.0632075)
+texture = ExtResource("7_c7tqi")
 
-[node name="Pngheart2" type="Sprite2D" parent="Layout/healthBar"]
-position = Vector2(184, 99)
-texture = ExtResource("6_c7tqi")
+[node name="FixedSquare2" type="Sprite2D" parent="Layout/healthBar"]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(157, 67.5)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("7_c7tqi")
 
-[node name="Pngheart3" type="Sprite2D" parent="Layout/healthBar"]
-position = Vector2(350, 99)
-texture = ExtResource("6_c7tqi")
+[node name="FixedSquare3" type="Sprite2D" parent="Layout/healthBar"]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(257, 67.5)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("7_c7tqi")
