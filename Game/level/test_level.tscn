@@ -38,19 +38,38 @@ shape = SubResource("RectangleShape2D_amuej")
 points = PackedVector2Array(0, 0, 0, 720, 1280, 720, 1280, 0, 0, 0)
 default_color = Color(0, 0.813436, 0.814732, 1)
 
-[node name="EnemySpawner" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(379, 358)
-tracked_player = NodePath("../Player")
+[node name="enemy_spawners" type="Node" parent="."]
 
-[node name="EnemySpawner2" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(1487, 454)
-tracked_player = NodePath("../Player")
+[node name="EnemySpawner" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(-56, 319)
+tracked_player = NodePath("../../Player")
 
-[node name="EnemySpawner3" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(98, 915)
-tracked_player = NodePath("../Player")
+[node name="EnemySpawner2" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(1341, 396)
+tracked_player = NodePath("../../Player")
+
+[node name="EnemySpawner3" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(565, 756)
+tracked_player = NodePath("../../Player")
+
+[node name="EnemySpawner4" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
+position = Vector2(711, -52)
+tracked_player = NodePath("../../Player")
+
+[node name="enemy_group_node" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_s65ib")]
 position = Vector2(594, 327)
 
 [node name="UI" parent="." instance=ExtResource("4_owtjd")]
+
+[node name="wave_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

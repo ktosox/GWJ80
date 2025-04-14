@@ -42,6 +42,7 @@ func lose_game():
 		Global.high_score = current_score
 		Global.save_game()
 	
+	
 	var game_over = game_over_scene.instantiate()
 	get_tree().current_scene.add_child(game_over)
 	pass

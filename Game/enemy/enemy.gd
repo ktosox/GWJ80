@@ -33,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	linear_velocity = walk_direction.normalized() * speed
 	
 	
+	if(get_parent().get_parent().lose):
+		queue_free()
+	
 	
 
 
