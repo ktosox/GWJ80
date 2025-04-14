@@ -12,4 +12,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func update_health(new_health : int):
 	if new_health < heartNodes.size():
-		heartNodes[new_health].self_modulate = Color(60, 60, 60)
+		for i in range(heartNodes.size() - new_health):
+			heartNodes[(heartNodes.size() - i) - 1].self_modulate = Color(0.5, 0.5, 0.5)

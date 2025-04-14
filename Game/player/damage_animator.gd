@@ -1,7 +1,7 @@
 extends AnimationPlayer
 
 const sprite = preload("res://visuals/stunt_circle.tscn")
-
+@export var spritesRendered : int = 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.connect("game_over" , Callable(self, "deathAnimation"))
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func deathAnimation():
 	var children = []
-	for i in range(10):
+	for i in range(spritesRendered):
 		var child = sprite.instantiate()
 		add_sibling.call_deferred(child)
 		child.deathAnimation()

@@ -143,5 +143,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
 script = ExtResource("3_g1dw6")
+spritesRendered = 5
 
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]

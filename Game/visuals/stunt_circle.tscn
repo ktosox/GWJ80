@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://g070hk3r86xc"]
+[gd_scene load_steps=3 format=3 uid="uid://ceet57kxnrk83"]
 
 [ext_resource type="Texture2D" uid="uid://40l3q2isfi24" path="res://shapes/circle.png" id="1_1agsa"]
 [ext_resource type="Script" uid="uid://d1qa14da2sikh" path="res://visuals/stunt_circle.gd" id="2_ipx2s"]
@@ -8,6 +8,8 @@ self_modulate = Color(0.513726, 0.921569, 0.423529, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("1_1agsa")
 script = ExtResource("2_ipx2s")
+minimumMomentum = 0
+maximumMomentum = 999
 
 [node name="updateRate" type="Timer" parent="."]
 wait_time = 0.05
