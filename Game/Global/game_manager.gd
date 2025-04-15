@@ -4,6 +4,8 @@ signal score_changed(new_score)
 
 signal health_changed(new_health)
 
+signal game_over()
+
 @export var game_over_scene : PackedScene
 
 @export var current_player : CharacterBody2D
@@ -41,6 +43,8 @@ func lose_game():
 	if(Global.high_score < current_score):
 		Global.high_score = current_score
 		Global.save_game()
+	emit_signal("game_over")
+	await get_tree().create_timer(3).timeout
 	get_tree().current_scene.lose = true
 	
 	

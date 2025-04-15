@@ -1,14 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0tj6ma6afh21"]
+[gd_scene load_steps=7 format=3 uid="uid://b0tj6ma6afh21"]
 
 [ext_resource type="Script" uid="uid://doedhdpvalan1" path="res://UI/game_over.gd" id="1_p3wm4"]
+[ext_resource type="Texture2D" uid="uid://c7o5g0agriaux" path="res://UI/playButton.png" id="2_wruqd"]
+[ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="3_wruqd"]
+
+[sub_resource type="Animation" id="Animation_phit2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wruqd"]
+resource_name = "flashing"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmr02"]
+_data = {
+&"RESET": SubResource("Animation_phit2"),
+&"flashing": SubResource("Animation_wruqd")
+}
 
 [node name="GameOver" type="ColorRect"]
 process_mode = 3
+z_index = 2
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.525101, 0.525101, 0.525101, 1)
+color = Color(0, 0, 0, 1)
 script = ExtResource("1_p3wm4")
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = -500.0
+offset_top = 239.0
+offset_right = -418.0
+offset_bottom = 293.0
+scale = Vector2(4, 4)
+icon = ExtResource("2_wruqd")
+flat = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -17,24 +68,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -481.0
-offset_top = -212.0
-offset_right = -317.0
-offset_bottom = -163.0
+offset_left = -210.0
+offset_top = -204.0
+offset_right = 1148.0
+offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6, 6)
-text = "player got hit 3 times
-you lose"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wruqd")
+theme_override_font_sizes/font_size = 200
+text = "GAME
+OVER"
 
-[node name="Reset" type="Button" parent="."]
+[node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 493.0
-offset_top = 503.0
-offset_right = 570.0
-offset_bottom = 534.0
-scale = Vector2(4, 4)
-text = "try again"
+offset_left = 280.0
+offset_top = 528.0
+offset_right = 1638.0
+offset_bottom = 937.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wruqd")
+theme_override_font_sizes/font_size = 75
+text = "press up to restart"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label2"]
+libraries = {
+&"": SubResource("AnimationLibrary_fmr02")
+}
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

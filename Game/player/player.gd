@@ -6,7 +6,7 @@ const SPEED = 300.0
 
 func _ready():
 	GameManager.current_player = self
-	
+	GameManager.connect("game_over", Callable(self, "on_death_detected"))
 	connect("player_got_hit",Callable(GameManager,"change_health"))
 	pass
 
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
 
 	velocity = direction.normalized() * SPEED
-
+	
 	move_and_slide()
 
 
@@ -25,3 +25,7 @@ func _on_hit_box_hit_detected() -> void:
 	$DamageAnimator.play("damage")
 	emit_signal("player_got_hit",-1)
 	pass # Replace with function body.
+
+func on_death_detected():
+	$DamageAnimator.stop()
+	$DamageAnimator.play("death")

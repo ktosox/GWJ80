@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkx7vs2rcxeep"]
+[gd_scene load_steps=8 format=3 uid="uid://dkx7vs2rcxeep"]
 
 [ext_resource type="Script" uid="uid://cuj6spgg582qj" path="res://level/test_level.gd" id="1_dsqel"]
 [ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_owtjd"]
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="2_s65ib"]
 [ext_resource type="PackedScene" uid="uid://b2ov3q3k3dvys" path="res://UI/ui.tscn" id="4_owtjd"]
+[ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="5_22gpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amuej"]
 size = Vector2(1280, 100)
@@ -70,6 +71,13 @@ autostart = true
 [node name="spawn_timer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="FixedSquare" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -10
+position = Vector2(547, 293)
+scale = Vector2(2.62233, 1.45157)
+texture = ExtResource("5_22gpc")
 
 [connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

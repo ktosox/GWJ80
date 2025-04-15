@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3yfgkrsgvb73"]
+
+[ext_resource type="Texture2D" uid="uid://40l3q2isfi24" path="res://shapes/circle.png" id="1_1agsa"]
+[ext_resource type="Script" uid="uid://d1qa14da2sikh" path="res://visuals/stunt_circle.gd" id="2_ipx2s"]
+
+[node name="stunt circle" type="Sprite2D"]
+self_modulate = Color(0.513726, 0.921569, 0.423529, 1)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_1agsa")
+script = ExtResource("2_ipx2s")
+minimumMomentum = 0
+maximumMomentum = 999
+
+[node name="updateRate" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="updateRate" to="." method="_on_update_rate_timeout"]
