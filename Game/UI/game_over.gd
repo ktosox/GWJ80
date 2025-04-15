@@ -1,8 +1,10 @@
 extends ColorRect
+@onready var animation_player: AnimationPlayer = $Label2/AnimationPlayer
 
 
 func _ready() -> void:
 	get_tree().paused = true
+	animation_player.play("flashing")
 
 
 func _on_reset_pressed() -> void:
