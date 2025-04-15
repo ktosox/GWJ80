@@ -74,6 +74,7 @@ wait_time = 8.0
 autostart = true
 
 [node name="FixedSquare" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = -10
 position = Vector2(547, 293)
