@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceet57kxnrk83"]
+[gd_scene load_steps=3 format=3 uid="uid://d3yfgkrsgvb73"]
 
 [ext_resource type="Texture2D" uid="uid://40l3q2isfi24" path="res://shapes/circle.png" id="1_1agsa"]
 [ext_resource type="Script" uid="uid://d1qa14da2sikh" path="res://visuals/stunt_circle.gd" id="2_ipx2s"]
