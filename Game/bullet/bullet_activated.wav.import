@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vmtv1fedj7y1"
-path="res://.godot/imported/bullet_follow.wav-0b9ddc61f62ba5e7bc7082bceee641c3.sample"
+path="res://.godot/imported/bullet_activated.wav-787217923fd99ca7fc2f9de6b0a0f937.sample"
 
 [deps]
 
-source_file="res://bullet/bullet_follow.wav"
-dest_files=["res://.godot/imported/bullet_follow.wav-0b9ddc61f62ba5e7bc7082bceee641c3.sample"]
+source_file="res://bullet/bullet_activated.wav"
+dest_files=["res://.godot/imported/bullet_activated.wav-787217923fd99ca7fc2f9de6b0a0f937.sample"]
 
 [params]
 

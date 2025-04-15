@@ -149,6 +149,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
 script = ExtResource("3_g1dw6")
+spritesRendered = 5
 
 [node name="GravityEffect" type="Area2D" parent="."]
 collision_layer = 0

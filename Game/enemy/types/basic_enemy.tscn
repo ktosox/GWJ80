@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://blbrh6jiig0us"]
+[gd_scene load_steps=8 format=3 uid="uid://blbrh6jiig0us"]
 
 [ext_resource type="Script" uid="uid://c45uj2cegruq6" path="res://enemy/enemy.gd" id="1_80ndw"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_mj27f"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_pvt5w"]
 [ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="3_tql8b"]
+[ext_resource type="AudioStream" uid="uid://c4s7nxrfrkma0" path="res://enemy/enemy_hit.wav" id="4_hn1bt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_scxef"]
 radius = 180.0
@@ -27,6 +29,10 @@ shape = SubResource("CircleShape2D_scxef")
 shape = SubResource("CircleShape2D_ofsxj")
 
 [node name="HitBox" parent="." instance=ExtResource("2_mj27f")]
+
+[node name="AudioComponent" parent="HitBox" instance=ExtResource("3_pvt5w")]
+signal_name = "hit_detected"
+audio = ExtResource("4_hn1bt")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0.1)
