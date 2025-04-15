@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b38tkjvroxetg"]
+
+[ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="1_1t83w"]
+[ext_resource type="Script" uid="uid://d0uk61jy60esa" path="res://bullet/bullet_testing_arena.gd" id="1_kweig"]
+[ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_kweig"]
+
+[node name="BulletTestingArena" type="Node2D"]
+script = ExtResource("1_kweig")
+
+[node name="Player" parent="." instance=ExtResource("1_1t83w")]
+position = Vector2(526, 353)
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_kweig")]
+position = Vector2(883, 380)
+tracked_player = NodePath("../Player")
