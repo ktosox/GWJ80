@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_3wba8"]
 [ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="3_5sx8b"]
 [ext_resource type="AudioStream" uid="uid://c4s7nxrfrkma0" path="res://enemy/enemy_hit.wav" id="4_607u1"]
+[ext_resource type="Texture2D" uid="uid://0njb5elvj2ue" path="res://shapes/orange_hexagon.png" id="4_k3tft"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jl8q"]
 radius = 180.0
@@ -42,6 +43,9 @@ width = 20.0
 default_color = Color(0.979615, 0.53495, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
+[node name="OrangeHexagon" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_k3tft")
 
 [node name="Gun" parent="." instance=ExtResource("3_5sx8b")]
 

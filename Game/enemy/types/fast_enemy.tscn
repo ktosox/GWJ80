@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmlsq2g278di7"]
+[gd_scene load_steps=7 format=3 uid="uid://cmlsq2g278di7"]
 
 [ext_resource type="Script" uid="uid://c45uj2cegruq6" path="res://enemy/enemy.gd" id="1_iodfy"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_oiip6"]
+[ext_resource type="Texture2D" uid="uid://t7ytawvqqnwl" path="res://shapes/yellow_triangle.png" id="3_oiip6"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_1jl8q"]
 [ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="3_rldxp"]
 [ext_resource type="AudioStream" uid="uid://c4s7nxrfrkma0" path="res://enemy/enemy_hit.wav" id="4_pmdwj"]
@@ -32,6 +33,9 @@ shape = SubResource("CircleShape2D_pmdwj")
 
 [node name="HitBox" parent="." instance=ExtResource("2_oiip6")]
 
+[node name="YellowTriangle" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_oiip6")
 [node name="AudioComponent" parent="HitBox" instance=ExtResource("3_1jl8q")]
 signal_name = "hit_detected"
 audio = ExtResource("4_pmdwj")
