@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal activated
+
 var target : Node2D
 
 @export var base_follow_speed = 400
@@ -7,6 +9,7 @@ var target : Node2D
 @export var active = false
 
 const DISTANCE_SPEED_MOD = 8900
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -22,10 +25,11 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
-	$Line2D.default_color = Color("blue")
-	active = true
-	target = body
-	pass # Replace with function body.
+	if !active:
+		$Line2D.default_color = Color("blue")
+		active = true
+		target = body
+		activated.emit()
 
 
 func _on_player_detector_body_exited(body: Node2D) -> void: # not connected in current version
