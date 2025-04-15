@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="3_g1dw6"]
+[ext_resource type="Script" path="res://player/damage_animator.gd" id="4_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 17.1172
 
 [sub_resource type="Animation" id="Animation_g1dw6"]
 length = 0.001
@@ -142,7 +143,7 @@ end_cap_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_yw30f")
 }
-script = ExtResource("3_g1dw6")
+script = ExtResource("4_yw30f")
 spritesRendered = 5
 
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]
