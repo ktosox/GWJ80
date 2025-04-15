@@ -14,7 +14,7 @@ func shoot_gun(barrel : Node2D):
 	pass
 
 func _on_cooldown_timeout() -> void:
-	shoot_gun($Line2D)
-	shoot_gun($Line2D2)
-	shoot_gun($Line2D3)
+	shoot_gun($Gun)
+	shoot_gun($Gun2)
+	shoot_gun($Gun3)
 	pass # Replace with function body.
