@@ -6,7 +6,7 @@ signal health_changed(new_health)
 
 signal game_over()
 
-signal deleteBullets()
+signal changePlayerState()
 
 @export var game_over_scene : PackedScene
 
@@ -55,4 +55,5 @@ func lose_game():
 	pass
 
 func on_pickup_collected():
-	deleteBullets.emit()
+	print("gameManager working")
+	changePlayerState.emit()

@@ -6,7 +6,7 @@ signal activated
 @export var active = false
 
 func _ready() -> void:
-	GameManager.connect("deleteBullets", Callable(self, "deleteSelf"))
+	pass
 
 func deleteSelf():
 	queue_free()

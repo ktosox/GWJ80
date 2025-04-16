@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=18 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
@@ -35,18 +35,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_rkbax")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GreenCircle:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_rkbax"]
@@ -131,12 +119,92 @@ radius = 120.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 32.0
 
+[sub_resource type="Animation" id="Animation_rgyib"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../bulletAbsorber/CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GreenCircle:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g6k8r"]
+resource_name = "disable power"
+
+[sub_resource type="Animation" id="Animation_boad6"]
+resource_name = "powerUP"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../bulletAbsorber/CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gun")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_ammo"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GreenCircle:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hg6s5"]
+_data = {
+&"RESET": SubResource("Animation_rgyib"),
+&"disable power": SubResource("Animation_g6k8r"),
+&"powerUP": SubResource("Animation_boad6")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
+collision_mask = 48
 
 [node name="GreenCircle" type="Sprite2D" parent="."]
 texture = ExtResource("3_g1dw6")
@@ -185,17 +253,24 @@ shape = SubResource("CircleShape2D_yw30f")
 disabled = true
 
 [node name="bulletAbsorber" type="Area2D" parent="."]
-collision_mask = 16
+collision_mask = 32
 script = ExtResource("5_qjkh3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bulletAbsorber"]
 position = Vector2(0, 1)
 rotation = 1.5708
-polygon = PackedVector2Array(-1, 0, -30, -59, 30, -58)
+polygon = PackedVector2Array(-1, 0, -59, -94, 45, -96)
+disabled = true
 
 [node name="gun" type="Node2D" parent="."]
 position = Vector2(65, 0)
 script = ExtResource("6_g6k8r")
+
+[node name="capturePowerupAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DamageAnimator")
+libraries = {
+&"": SubResource("AnimationLibrary_hg6s5")
+}
 
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]
 [connection signal="body_entered" from="bulletAbsorber" to="bulletAbsorber" method="_on_body_entered"]

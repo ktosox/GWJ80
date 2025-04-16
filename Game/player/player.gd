@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal player_got_hit(damage)
+@onready var capture_powerup_animator: AnimationPlayer = $capturePowerupAnimator
 
 var ammo = 0
 const SPEED = 300.0
@@ -8,6 +9,7 @@ const SPEED = 300.0
 func _ready():
 	GameManager.current_player = self
 	GameManager.connect("game_over", Callable(self, "on_death_detected"))
+	GameManager.connect("changePlayerState", Callable(self, "powerupPickedUp"))
 	connect("player_got_hit",Callable(GameManager,"change_health"))
 	pass
 
@@ -29,3 +31,7 @@ func _on_hit_box_hit_detected() -> void:
 func on_death_detected():
 	$DamageAnimator.stop()
 	$DamageAnimator.play("death")
+
+func powerupPickedUp():
+	print("playerScript Working")
+	capture_powerup_animator.play("powerUP")
