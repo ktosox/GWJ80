@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c45uj2cegruq6" path="res://enemy/enemy.gd" id="1_6xstn"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_4llxl"]
-[ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="3_52gsj"]
+[ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/multi_gun.tscn" id="3_52gsj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jl8q"]
 radius = 180.0

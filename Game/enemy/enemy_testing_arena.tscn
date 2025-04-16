@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1wiyfusqkx4o"]
+
+[ext_resource type="PackedScene" uid="uid://dexaeb0yjvpmy" path="res://enemy/shooter/spiny_shooter.tscn" id="1_eoim1"]
+
+[node name="EnemyTestingArena" type="Node2D"]
+
+[node name="SpinyShooter" parent="." instance=ExtResource("1_eoim1")]
+position = Vector2(371, 204)
