@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3yfgkrsgvb73"]
+[gd_scene load_steps=4 format=3 uid="uid://d3yfgkrsgvb73"]
 
 [ext_resource type="Texture2D" uid="uid://40l3q2isfi24" path="res://shapes/circle.png" id="1_1agsa"]
 [ext_resource type="Script" uid="uid://d1qa14da2sikh" path="res://visuals/stunt_circle.gd" id="2_ipx2s"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1agsa"]
+radius = 114.286
+
 [node name="stunt circle" type="Sprite2D"]
-self_modulate = Color(0.513726, 0.921569, 0.423529, 1)
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("1_1agsa")
 script = ExtResource("2_ipx2s")
-minimumMomentum = 0
-maximumMomentum = 999
 
-[node name="updateRate" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
 
-[connection signal="timeout" from="updateRate" to="." method="_on_update_rate_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1agsa")

@@ -7,6 +7,5 @@ func _ready() -> void:
 	$AnimationPlayer.play("appearing")
 
 func _on_body_entered(body: Node2D) -> void:
-	print("pickup working")
 	pickupCollected.emit()
 	queue_free()

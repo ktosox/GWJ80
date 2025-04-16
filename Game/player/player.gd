@@ -33,5 +33,4 @@ func on_death_detected():
 	$DamageAnimator.play("death")
 
 func powerupPickedUp():
-	print("playerScript Working")
 	capture_powerup_animator.play("powerUP")

@@ -85,7 +85,7 @@ texture = ExtResource("5_22gpc")
 script = ExtResource("7_v7kku")
 
 [node name="pickupSpawnRate" type="Timer" parent="pickupManager"]
-wait_time = 10.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]

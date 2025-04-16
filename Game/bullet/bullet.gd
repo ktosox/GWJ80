@@ -5,8 +5,6 @@ signal activated
 
 @export var active = false
 
-func _ready() -> void:
-	pass
 
 func deleteSelf():
 	queue_free()
