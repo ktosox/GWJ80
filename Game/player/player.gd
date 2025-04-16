@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal player_got_hit(damage)
 
+var ammo = 0
 const SPEED = 300.0
 
 func _ready():
@@ -11,12 +12,11 @@ func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
-
 	var direction := Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
-
 	velocity = direction.normalized() * SPEED
-	
 	move_and_slide()
+	look_at(get_global_mouse_position())
+	
 
 
 func _on_hit_box_hit_detected() -> void:
