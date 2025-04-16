@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="2_s65ib"]
 [ext_resource type="PackedScene" uid="uid://b2ov3q3k3dvys" path="res://UI/ui.tscn" id="4_owtjd"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="5_22gpc"]
-[ext_resource type="PackedScene" uid="uid://y4bakkmyhlkj" path="res://pick_up/pickup.tscn" id="6_xowea"]
+[ext_resource type="Script" uid="uid://dc5lr8awvwl7b" path="res://level/pickup_manager.gd" id="7_v7kku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amuej"]
 size = Vector2(1280, 100)
@@ -81,8 +81,13 @@ position = Vector2(547, 293)
 scale = Vector2(2.62233, 1.45157)
 texture = ExtResource("5_22gpc")
 
-[node name="pickup" parent="." instance=ExtResource("6_xowea")]
-position = Vector2(297, 231)
+[node name="pickupManager" type="Node2D" parent="."]
+script = ExtResource("7_v7kku")
+
+[node name="pickupSpawnRate" type="Timer" parent="pickupManager"]
+wait_time = 30.0
+autostart = true
 
 [connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="pickupManager/pickupSpawnRate" to="pickupManager" method="_on_pickup_spawn_rate_timeout"]
