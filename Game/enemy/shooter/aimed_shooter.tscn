@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dov3akcxyfqrp"]
+
+[ext_resource type="Script" uid="uid://746lwkp73t6h" path="res://enemy/shooter/aimed_shooter.gd" id="1_hf4ie"]
+
+[node name="AimedShooter" type="Node2D"]
+script = ExtResource("1_hf4ie")
+
+[node name="GunSpot" type="Marker2D" parent="."]
+position = Vector2(12, 0)

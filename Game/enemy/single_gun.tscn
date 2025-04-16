@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://63o6mwx3w0sk"]
+[gd_scene load_steps=6 format=3 uid="uid://lifkfy1d37r0"]
+
+[ext_resource type="Script" uid="uid://pjnvebri1k3k" path="res://enemy/single_gun.gd" id="1_eaqiw"]
+[ext_resource type="PackedScene" uid="uid://vjexxy0oei3q" path="res://bullet/bullet.tscn" id="2_un3of"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_uk6nb"]
+[ext_resource type="AudioStream" uid="uid://bu4edkioj032m" path="res://enemy/shoot.wav" id="4_7thby"]
+[ext_resource type="Texture2D" uid="uid://ck7qx7kqre8p6" path="res://shapes/gun.png" id="5_2p1hd"]
 
 [node name="SingleGun" type="Node2D"]
+script = ExtResource("1_eaqiw")
+bullet_scene = ExtResource("2_un3of")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AudioComponent" parent="Cooldown" instance=ExtResource("3_uk6nb")]
+signal_name = "timeout"
+audio = ExtResource("4_7thby")
+
+[node name="Gun2" type="Sprite2D" parent="."]
+position = Vector2(17, -9.53674e-07)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_2p1hd")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1wiyfusqkx4o"]
+[gd_scene load_steps=3 format=3 uid="uid://d1wiyfusqkx4o"]
 
-[ext_resource type="PackedScene" uid="uid://dexaeb0yjvpmy" path="res://enemy/shooter/spiny_shooter.tscn" id="1_eoim1"]
+[ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="1_727aj"]
+[ext_resource type="PackedScene" uid="uid://bd5sro7njtben" path="res://enemy/walker/bouncy_walker.tscn" id="2_727aj"]
 
 [node name="EnemyTestingArena" type="Node2D"]
 
-[node name="SpinyShooter" parent="." instance=ExtResource("1_eoim1")]
-position = Vector2(371, 204)
+[node name="Player" parent="." instance=ExtResource("1_727aj")]
+position = Vector2(370, 220)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(60, 701, 983, 677, 986, 837, -138, 843, -150, -107, 1084, -88, 1067, 822, 989, 834, 956, 55, 41, 1)
+
+[node name="BouncyWalker" parent="." instance=ExtResource("2_727aj")]
+position = Vector2(738, 495)
+linear_velocity = Vector2(20, 100)
+
+[node name="BouncyWalker2" parent="." instance=ExtResource("2_727aj")]
+position = Vector2(214, 498)
+linear_velocity = Vector2(-80, -80)
+
+[node name="BouncyWalker3" parent="." instance=ExtResource("2_727aj")]
+position = Vector2(631, 208)
+linear_velocity = Vector2(200, -50)
