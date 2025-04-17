@@ -137,6 +137,7 @@ collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
+visible = false
 
 [node name="AudioComponent" parent="HitBox" instance=ExtResource("3_g6k8r")]
 signal_name = "hit_detected"
@@ -146,6 +147,7 @@ audio = ExtResource("4_boad6")
 texture = ExtResource("3_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="DamageAnimator" type="AnimationPlayer" parent="."]
@@ -156,6 +158,7 @@ script = ExtResource("4_yw30f")
 spritesRendered = 5
 
 [node name="GravityEffect" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 16
 gravity_space_override = 1

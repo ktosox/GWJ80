@@ -84,7 +84,7 @@ scale = Vector2(2.62233, 1.45157)
 texture = ExtResource("5_22gpc")
 
 [node name="pickup" parent="." instance=ExtResource("6_xowea")]
-position = Vector2(297, 231)
+position = Vector2(353, 283)
 
 [node name="LevelMusic" parent="." instance=ExtResource("7_kopq5")]
 signal_name = "ready"

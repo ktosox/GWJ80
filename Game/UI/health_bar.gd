@@ -15,3 +15,10 @@ func update_health(new_health : int):
 	if new_health < heartNodes.size():
 		for i in range(heartNodes.size() - new_health):
 			heartNodes[(heartNodes.size() - i) - 1].self_modulate = Color(0.5, 0.5, 0.5)
+		
+	if(new_health <=3):
+		$TextureProgressBar.texture_under = preload("res://UI/3_hearts.png")
+		$TextureProgressBar.texture_progress = preload("res://UI/3_hearts.png")
+	elif(new_health > 3):
+		$TextureProgressBar.texture_under = preload("res://UI/5_hearts.png")
+		$TextureProgressBar.texture_progress = preload("res://UI/5_hearts.png")
