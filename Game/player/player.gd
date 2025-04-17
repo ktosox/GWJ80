@@ -33,4 +33,4 @@ func on_death_detected():
 	$DamageAnimator.play("death")
 
 func powerupPickedUp():
-	capture_powerup_animator.play("vacuumState")
+	capture_powerup_animator.call_deferred("play", "vacuumState")

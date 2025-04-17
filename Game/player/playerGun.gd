@@ -20,8 +20,6 @@ func shoot():
 func spawnBullet():
 	var bulletInstance = BulletScene.instantiate()
 	owner.add_sibling(bulletInstance)
-	bulletInstance.global_position = global_position
-	bulletInstance.global_rotation = global_rotation
 	return bulletInstance
 
 func reset_ammo():

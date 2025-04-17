@@ -6,12 +6,12 @@ const stuntCircleScene = preload("res://visuals/stunt_circle.tscn")
 
 
 var stuntCircle
-func _on_body_entered(body: Node2D) -> void:
+func _on_bullet_entered(body: Node2D) -> void:
 	var bodyPosition = to_local(body.global_position)
 	body.queue_free()
 	stuntCircle = spawnStuntCircle()
 	setupStuntCircleAnimation(bodyPosition)
-	gun.ammo += 1 # Replace with function body.
+	gun.ammo += 1  
 
 func spawnStuntCircle():
 		var stuntCircleInstance = stuntCircleScene.instantiate()
