@@ -1,9 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1wiyfusqkx4o"]
+[gd_scene load_steps=8 format=3 uid="uid://d1wiyfusqkx4o"]
 
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="1_727aj"]
-[ext_resource type="PackedScene" uid="uid://ds7w2tjndb0os" path="res://enemy/walker/followy_walker.tscn" id="2_727aj"]
+[ext_resource type="Script" uid="uid://byfx461rtc2qi" path="res://enemy/enemy_testing_arena.gd" id="1_o4all"]
+[ext_resource type="Script" uid="uid://dgc4xuxpcq0o8" path="res://enemy/enemy_package.gd" id="2_25moa"]
+[ext_resource type="PackedScene" uid="uid://lifkfy1d37r0" path="res://enemy/single_gun.tscn" id="3_6o5hp"]
+
+[sub_resource type="Resource" id="Resource_r4ucg"]
+script = ExtResource("2_25moa")
+ID = 0
+walk_speed = 50
+walker_type = 0
+shooter_type = 0
+guns = Array[PackedScene]([ExtResource("3_6o5hp"), ExtResource("3_6o5hp")])
+bullet_speed = 60
+attack_speed = 1.0
+metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
+
+[sub_resource type="Resource" id="Resource_i4l8q"]
+script = ExtResource("2_25moa")
+ID = 0
+walk_speed = 90
+walker_type = 1
+shooter_type = 0
+guns = Array[PackedScene]([ExtResource("3_6o5hp")])
+bullet_speed = 60
+attack_speed = 1.0
+metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
+
+[sub_resource type="Resource" id="Resource_25moa"]
+script = ExtResource("2_25moa")
+ID = 0
+walk_speed = 120
+walker_type = 0
+shooter_type = 1
+guns = Array[PackedScene]([ExtResource("3_6o5hp")])
+bullet_speed = 60
+attack_speed = 2.0
+metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
 [node name="EnemyTestingArena" type="Node2D"]
+script = ExtResource("1_o4all")
+possible_enemies = Array[ExtResource("2_25moa")]([SubResource("Resource_r4ucg"), SubResource("Resource_i4l8q"), SubResource("Resource_25moa")])
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_727aj")]
 position = Vector2(370, 220)
@@ -15,11 +52,5 @@ collision_mask = 6
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(60, 701, 983, 677, 986, 837, -138, 843, -150, -107, 1084, -88, 1067, 822, 989, 834, 956, 55, 41, 1)
 
-[node name="FollowyWalker" parent="." instance=ExtResource("2_727aj")]
-position = Vector2(328, 519)
-
-[node name="FollowyWalker2" parent="." instance=ExtResource("2_727aj")]
-position = Vector2(697, 454)
-
-[node name="FollowyWalker3" parent="." instance=ExtResource("2_727aj")]
-position = Vector2(624, 178)
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(561, 386)

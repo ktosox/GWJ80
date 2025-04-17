@@ -5,7 +5,7 @@ extends RigidBody2D
 
 @export var speed = 90
 
-var walk_direction_mod = 0 # 0 for stop / 1 for follow / -1 for walk away
+var walk_direction_mod = 1 # 0 for stop / 1 for follow / -1 for walk away
 
 func _ready() -> void:
 	var player_check = get_tree().get_nodes_in_group("Player") # automaticly check if there is a node in the Player group somewhere on scene

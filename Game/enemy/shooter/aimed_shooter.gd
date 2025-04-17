@@ -5,7 +5,7 @@ extends Node2D
 
 @export var gun : PackedScene
 
-@export var cooldown = 2.0
+@export var attack_speed = 2.0
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 	if gun != null:
 		
 		var new_gun = gun.instantiate()
-		new_gun.cooldown = cooldown
+		new_gun.cooldown = attack_speed
 		$GunSpot.add_child(new_gun)
 
 

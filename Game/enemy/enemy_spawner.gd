@@ -60,3 +60,11 @@ func get_enemy(random_enemy : int, spawn_pick_up : bool):
 		new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
 		enemy_group_node.add_child(new_enemy)
 	
+	
+func create_enemy_from_package(data : EnemyPackage) -> RigidBody2D:
+	var new_walker = data.get_walker().instantiate()
+	new_walker.speed = data.walk_speed
+	var new_shooter = data.get_shooter().instantiate()
+	new_shooter.attack_speed = data.attack_speed
+	new_walker.add_child(new_shooter)
+	return new_walker

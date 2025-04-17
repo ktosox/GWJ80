@@ -13,7 +13,11 @@ var walker_map ={
 	Walkers.FOLLOWY : preload("res://enemy/walker/followy_walker.tscn"),
 }
 
+
 @export var walker_type : Walkers
+
+func get_walker() -> PackedScene:
+	return walker_map[walker_type]
 
 enum Shooters {SPINY, AIMED}
 
@@ -23,6 +27,9 @@ var shooter_map ={
 }
 
 @export var shooter_type : Shooters
+
+func get_shooter() -> PackedScene:
+	return shooter_map[shooter_type]
 
 @export var guns : Array[PackedScene] 
 
