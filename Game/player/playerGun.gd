@@ -13,6 +13,8 @@ func _input(event: InputEvent) -> void:
 func shoot():
 	if ammo > 0:
 		var bullet = spawnBullet()
+		bullet.global_position = global_position
+		bullet.global_rotation = global_rotation
 		bullet.linear_velocity = bullet_speed * Vector2.RIGHT.rotated(global_rotation)
 		ammo -= 1
 
