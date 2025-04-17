@@ -15,6 +15,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _ready() -> void:
+	var player_check = get_tree().get_nodes_in_group("Player") # automaticly check if there is a node in the Player group somewhere on scene
+	if player_check.size() > 0 and target == null: # if there is a player and target is null -> set target
+		target = player_check[0]
 	if gun_A != null:
 		
 		var new_gun = gun_A.instantiate()

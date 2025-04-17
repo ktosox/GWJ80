@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://coj5ey4dg7nfx"]
+
+[ext_resource type="Script" uid="uid://csia02rgrimdu" path="res://enemy/enemy_creation_screen.gd" id="1_c354p"]
+[ext_resource type="Script" uid="uid://dgc4xuxpcq0o8" path="res://enemy/enemy_package.gd" id="2_nlgto"]
+
+[sub_resource type="Resource" id="Resource_1s88w"]
+script = ExtResource("2_nlgto")
+ID = 4
+walk_speed = 24
+walker_type = 0
+metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
+
+[node name="EnemyCreationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c354p")
+test = SubResource("Resource_1s88w")
