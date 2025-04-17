@@ -12,29 +12,38 @@ extends Node2D
 func _ready():
 	pass
 		
-func spawn_enemy(wave : int):
+func spawn_enemy(wave : int, spawn_pick_up : bool):
 	
 	var random_enemy = randi_range(0, floor(wave/3))
 	if(random_enemy > 2):
 		random_enemy = randi_range(0, 2)
-		
-	get_enemy(random_enemy)
+	
+	get_enemy(random_enemy, spawn_pick_up)
 	
 	
 	
 
 
-func get_enemy(random_enemy : int):
+func get_enemy(random_enemy : int, spawn_pick_up : bool):
 	if(random_enemy == 0):
 		var new_enemy = basic_enemy_scene.instantiate() as RigidBody2D
 		new_enemy.global_position = global_position
+		if(spawn_pick_up):
+			new_enemy.spawn_pickup = true
+		else:
+			new_enemy.spawn_pickup = false
 		new_enemy.target = tracked_player
 		new_enemy.walk_towards_target = true
 		new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
 		enemy_group_node.add_child(new_enemy)
+		
 	elif(random_enemy == 1):
 		var new_enemy = strong_enemy_scene.instantiate() as RigidBody2D
 		new_enemy.global_position = global_position
+		if(spawn_pick_up):
+			new_enemy.spawn_pickup = true
+		else:
+			new_enemy.spawn_pickup = false
 		new_enemy.target = tracked_player
 		new_enemy.walk_towards_target = true
 		new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
@@ -42,6 +51,10 @@ func get_enemy(random_enemy : int):
 	elif(random_enemy == 2):
 		var new_enemy = fast_enemy_scene.instantiate() as RigidBody2D
 		new_enemy.global_position = global_position
+		if(spawn_pick_up):
+			new_enemy.spawn_pickup = true
+		else:
+			new_enemy.spawn_pickup = false
 		new_enemy.target = tracked_player
 		new_enemy.walk_towards_target = true
 		new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))

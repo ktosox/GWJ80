@@ -10,6 +10,9 @@ enum Type{basic, fast, strong}
 @export var speed = 120
 @export var health : int
 
+const PICKUP = preload("res://pick_up/pickup.tscn")
+var spawn_pickup : bool 
+
 func _ready():
 	pass
 
@@ -53,6 +56,9 @@ func _on_hit_box_hit_detected() -> void:
 	health -= 1
 	if(health <= 0):
 		GameManager.change_score(1)
-
+		if(spawn_pickup):
+			var pick_up = PICKUP.instantiate()
+			get_parent().get_parent().add_child(pick_up)
+			pick_up.global_position = global_position
 		queue_free()
 	
