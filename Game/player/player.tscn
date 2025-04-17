@@ -1,9 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=19 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://03yhxmt0myiq" path="res://shapes/green_circle.png" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://bygki10hkju7g" path="res://player/player_hit.wav" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://xbkisvgjxf3m" path="res://pick_up/shield_pickup.png" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://bbes6ar5omrng" path="res://player/shield_animator.gd" id="7_boad6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 22.0
@@ -123,6 +127,67 @@ _data = {
 &"death": SubResource("Animation_yw30f")
 }
 
+[sub_resource type="Animation" id="Animation_g6k8r"]
+resource_name = "show_shield"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_boad6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgyib"]
+_data = {
+&"RESET": SubResource("Animation_boad6"),
+&"show_shield": SubResource("Animation_g6k8r")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 120.0
 
@@ -135,12 +200,22 @@ collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
+visible = false
+
+[node name="AudioComponent" parent="HitBox" instance=ExtResource("3_g6k8r")]
+signal_name = "hit_detected"
+audio = ExtResource("4_boad6")
 
 [node name="GreenCircle" type="Sprite2D" parent="."]
 texture = ExtResource("3_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_rkbax")
+
+[node name="shield" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("4_qjkh3")
 
 [node name="DamageAnimator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -149,7 +224,14 @@ libraries = {
 script = ExtResource("4_yw30f")
 spritesRendered = 5
 
+[node name="ShieldAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rgyib")
+}
+script = ExtResource("7_boad6")
+
 [node name="GravityEffect" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 16
 gravity_space_override = 1
@@ -181,3 +263,4 @@ linear_damp = 0.25
 shape = SubResource("CircleShape2D_yw30f")
 
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]
+[connection signal="animation_finished" from="ShieldAnimator" to="." method="_on_shield_animator_animation_finished"]

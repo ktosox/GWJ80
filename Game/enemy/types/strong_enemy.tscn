@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpp2noqeee87d"]
+[gd_scene load_steps=9 format=3 uid="uid://cpp2noqeee87d"]
 
 [ext_resource type="Script" uid="uid://c45uj2cegruq6" path="res://enemy/enemy.gd" id="1_cc7io"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_k3tft"]
@@ -43,6 +43,7 @@ width = 20.0
 default_color = Color(0.979615, 0.53495, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
+
 [node name="OrangeHexagon" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_k3tft")

@@ -6,3 +6,8 @@
 [node name="GameManager" type="Node"]
 script = ExtResource("1_es8qg")
 game_over_scene = ExtResource("2_0ke1m")
+
+[node name="pick_up_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="pick_up_timer" to="." method="_on_pick_up_timer_timeout"]

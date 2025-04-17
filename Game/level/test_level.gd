@@ -10,6 +10,8 @@ var wave : int = 1
 @onready var ui: CanvasLayer = $UI
 var enemy_spawners : Array
 
+var pickup_enemy_count : int = 0
+var pickup_enemy_max = 1
 
 func _ready() -> void:
 	#Global.save_game() 
@@ -19,7 +21,7 @@ func _ready() -> void:
 	
 	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
 	enemy_spawners = $enemy_spawners.get_children()
-	
+	GameManager.connect("screen_cleaner", Callable(self, "clear_enemies"))
 	
 
 
@@ -29,4 +31,14 @@ func _on_wave_timer_timeout() -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
-	enemy_spawners[randi_range(0, len(enemy_spawners)-1)].spawn_enemy(wave)
+	pickup_enemy_count += 1
+	if(pickup_enemy_max == pickup_enemy_count):
+		enemy_spawners[randi_range(0, len(enemy_spawners)-1)].spawn_enemy(wave, true)
+		pickup_enemy_count = 0
+	elif(pickup_enemy_max != pickup_enemy_count):
+		enemy_spawners[randi_range(0, len(enemy_spawners)-1)].spawn_enemy(wave, false)
+		pickup_enemy_count = 0
+		
+func clear_enemies():
+	for i in $enemy_group_node.get_children():
+		i.queue_free()
