@@ -39,7 +39,10 @@ func set_score(new_score : int):
 
 func change_health(amount = 0): # - for health lost, + for health gained
 	current_health += amount
+	if(current_health > 5):
+		current_health = 5
 	emit_signal("health_changed",current_health)
+	
 	if current_health < 1:
 		lose_game()
 	pass
@@ -69,7 +72,7 @@ func lose_game():
 func enable_pick_up(pick_up_ : String):
 	pick_up_enabled = true
 	pick_up = pick_up_
-	if(pick_up_ == "health"):
+	if(pick_up_ == "health" and current_health <=5):
 		change_health(2)
 	elif(pick_up == "speed"):
 		emit_signal("speed_changed", false)
