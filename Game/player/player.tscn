@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=14 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://03yhxmt0myiq" path="res://shapes/green_circle.png" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://bygki10hkju7g" path="res://player/player_hit.wav" id="4_boad6"]
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
@@ -135,6 +137,10 @@ collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
+
+[node name="AudioComponent" parent="HitBox" instance=ExtResource("3_g6k8r")]
+signal_name = "hit_detected"
+audio = ExtResource("4_boad6")
 
 [node name="GreenCircle" type="Sprite2D" parent="."]
 texture = ExtResource("3_g1dw6")
