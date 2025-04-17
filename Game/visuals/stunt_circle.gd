@@ -1,10 +1,12 @@
 extends Sprite2D
-@onready var update_rate: Timer = $updateRate
 
 @export var minimumDeathAnimationMomentum = 30
 @export var maximumDeathAnimationMomentum = 70
-@export var subtractAmount = 0.03
-@export var SubtractAmountGrowth = 0.01
+@export var deathSubtractAmount = 0.03
+@export var deathSubtractAmountGrowth = 0.01
+@export var deathAnimationColor = Color("83eb6c")
+
+@export var vacuumAnimationSpeed = 100
 
 var deathAnimationSetupComplete = false
 var animationDoing 
@@ -13,29 +15,40 @@ var animationDoing
 func _ready() -> void:
 	pass # Replace with function body.
 
-var direction
-var momentum
+var deathAnimationDirection
+var deathAnimationMomentum
 func deathAnimation():
+	deathAnimationSetup()
+	#rest happens in physics process
+
+func deathAnimationSetup():
+	self_modulate = deathAnimationColor
+	deathAnimationDirection = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
+	deathAnimationMomentum = randf_range(minimumDeathAnimationMomentum,maximumDeathAnimationMomentum)
 	animationDoing = "death"
-	self_modulate = Color("83eb6c")
-	direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-	momentum = randf_range(minimumDeathAnimationMomentum,maximumDeathAnimationMomentum)
-	deathAnimationSetupComplete = true
-	
 
 var vacuumTarget : Node2D
 func vacuumAnimation(target: Node2D):
-	animationDoing = "vacuum"
 	vacuumTarget = target
+	animationDoing = "vacuum"
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta: float) -> void:
-	if animationDoing == "death" and momentum > 0:
-		position += momentum * direction * get_process_delta_time()
-		momentum -= subtractAmount
-		subtractAmount += 0.01
+	if animationDoing == "death" and deathAnimationMomentum > 0:
+		deathMovementPerFrame(delta)
 	elif animationDoing == "vacuum":
-		position += Vector2(100,0).rotated(rotation) * delta
-		
+		vacuumMovementPerFrame(delta)
+
+func deathMovementPerFrame(delta):
+	position += deathAnimationMomentum * deathAnimationDirection * delta
+	deathAnimationMomentum -= deathSubtractAmount
+	deathSubtractAmount += deathSubtractAmountGrowth
+
+func vacuumMovementPerFrame(delta):
+	moveTowardsTarget(vacuumTarget, 100 * delta)
+
+func moveTowardsTarget(Target:Node2D, momentum):
+	look_at(Target.global_position)
+	position += Vector2.RIGHT.rotated(rotation) * momentum

@@ -6,8 +6,7 @@ signal activated
 @export var active = false
 
 
-func deleteSelf():
-	queue_free()
+
 
 func _on_body_entered(body: Node) -> void:
 	queue_free()

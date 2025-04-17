@@ -11,8 +11,8 @@ scale = Vector2(0.035, 0.035)
 texture = ExtResource("1_1agsa")
 script = ExtResource("2_ipx2s")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="deletionAreaCollider" type="Area2D" parent="."]
 collision_layer = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deletionAreaCollider"]
 shape = SubResource("CircleShape2D_1agsa")

@@ -55,5 +55,4 @@ func lose_game():
 	pass
 
 func on_pickup_collected():
-	print("gameManager working")
 	changePlayerState.emit()
