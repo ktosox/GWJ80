@@ -5,9 +5,13 @@
 
 [sub_resource type="Resource" id="Resource_1s88w"]
 script = ExtResource("2_nlgto")
-ID = 4
-walk_speed = 24
-walker_type = 0
+ID = 0
+walk_speed = 90
+walker_type = 1
+shooter_type = 1
+guns = Array[PackedScene]([])
+bullet_speed = 60
+attack_speed = 1.0
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
 [node name="EnemyCreationScreen" type="Control"]
