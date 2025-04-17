@@ -8,7 +8,11 @@ extends RigidBody2D
 var walk_direction_mod = 0 # 0 for stop / 1 for follow / -1 for walk away
 
 func _ready() -> void:
-	
+	var player_check = get_tree().get_nodes_in_group("Player") # automaticly check if there is a node in the Player group somewhere on scene
+	if player_check.size() > 0 and target == null: # if there is a player and target is null -> set target
+		target = player_check[0]
+	if target == null:
+		set_physics_process(false)
 	pass
 
 

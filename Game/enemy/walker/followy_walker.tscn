@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds7w2tjndb0os"]
+[gd_scene load_steps=6 format=3 uid="uid://ds7w2tjndb0os"]
 
 [ext_resource type="Script" uid="uid://bsgvi2v84at3s" path="res://enemy/walker/followy_walker.gd" id="1_slthc"]
+[ext_resource type="Texture2D" uid="uid://s2c3swermptg" path="res://shapes/octagon.png" id="2_du3xm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ahg8"]
 
@@ -35,6 +36,10 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TooCloseRange"]
 shape = SubResource("CircleShape2D_slthc")
+
+[node name="Octagon" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("2_du3xm")
 
 [connection signal="body_entered" from="TooFarRange" to="." method="_on_too_far_range_body_entered"]
 [connection signal="body_exited" from="TooFarRange" to="." method="_on_too_far_range_body_exited"]
