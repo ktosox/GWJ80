@@ -10,6 +10,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	$SpinAnimator.advance(randf())
 	$SpinAnimator.speed_scale = spin_speed
 	if guns.size() > 0:
 		
