@@ -181,5 +181,3 @@ offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
 text = "left:"
-
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
