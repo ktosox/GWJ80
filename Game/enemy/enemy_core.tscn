@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_ifaq0"]
 
 [node name="EnemyCore" type="Node2D"]
-visible = false
 script = ExtResource("1_wq376")
 
 [node name="HitBox" parent="." instance=ExtResource("2_ifaq0")]

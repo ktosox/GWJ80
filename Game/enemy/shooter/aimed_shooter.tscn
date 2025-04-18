@@ -6,4 +6,4 @@
 script = ExtResource("1_hf4ie")
 
 [node name="GunSpot" type="Marker2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(8, 0)
