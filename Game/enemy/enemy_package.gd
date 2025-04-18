@@ -6,6 +6,13 @@ class_name EnemyPackage # used for spawning enemies, contains all of the variabl
 
 @export var walk_speed = 90
 
+@export var health = 3
+
+@export var enemy_core = preload("res://enemy/enemy_core.tscn") as PackedScene
+
+func get_core() -> PackedScene:
+	return enemy_core
+
 enum Walkers {BOUNCY, FOLLOWY}
 
 var walker_map ={
