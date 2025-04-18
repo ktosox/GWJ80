@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_oiip6"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_1jl8q"]
 [ext_resource type="Texture2D" uid="uid://t7ytawvqqnwl" path="res://shapes/yellow_triangle.png" id="3_oiip6"]
-[ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/gun.tscn" id="3_rldxp"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_1jl8q"]
+[ext_resource type="PackedScene" uid="uid://bjolphmeflso6" path="res://enemy/multi_gun.tscn" id="3_rldxp"]
 [ext_resource type="AudioStream" uid="uid://c4s7nxrfrkma0" path="res://enemy/enemy_hit.wav" id="4_pmdwj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jl8q"]

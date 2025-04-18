@@ -13,6 +13,8 @@ var enemy_spawners : Array
 var pickup_enemy_count : int = 0
 var pickup_enemy_max = 1
 
+
+
 func _ready() -> void:
 	#Global.save_game() 
 	GameManager.set_health(3)
