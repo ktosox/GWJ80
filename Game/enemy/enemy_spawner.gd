@@ -21,9 +21,11 @@ func spawn_enemy(wave : int, spawn_pick_up : bool):
 		#random_enemy = randi_range(0, 2)
 	#
 	#get_enemy(random_enemy, spawn_pick_up)
-	
-	var new_enemy = create_enemy_from_package(all_enemy_packages[max(0,wave-2+randi()%2)])
-	await get_tree().create_timer(0.5).timeout
+	var chosen_enemy_package = all_enemy_packages[max(0,wave-2+randi()%2)]
+	chosen_enemy_package.spawn_pick_up = spawn_pick_up
+	var new_enemy = create_enemy_from_package(chosen_enemy_package)
+	await get_tree().create_timer(0.5).timeout # give it a moment to prevent an error
+
 	new_enemy.global_position = global_position
 	new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
 	enemy_group_node.add_child(new_enemy)
@@ -71,6 +73,7 @@ func create_enemy_from_package(data : EnemyPackage) -> RigidBody2D:
 	# set all the things
 	var enemy_core = data.get_core().instantiate()
 	enemy_core.health = data.health
+	enemy_core.spawn_pick_up = data.spawn_pick_up
 	var new_walker = data.get_walker().instantiate()
 	new_walker.speed = data.walk_speed
 	var new_shooter = data.get_shooter().instantiate()

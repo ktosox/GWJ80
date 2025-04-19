@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
 	enemy_spawners = $enemy_spawners.get_children()
-	GameManager.connect("screen_cleaner", Callable(self, "clear_enemies"))
+	GameManager.connect("screen_cleaner", Callable(self, "clear_enemies")) # I had no idea it was supposed to work this way, seems kinda OP
 	
 
 
