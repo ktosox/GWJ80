@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=23 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
@@ -194,6 +194,46 @@ radius = 120.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgyib"]
+radius = 443.005
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "push_away"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PushBulletsAway:gravity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [-640.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PushBulletsAway:gravity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8t03j"]
+_data = {
+&"RESET": SubResource("Animation_hg6s5"),
+&"push_away": SubResource("Animation_rgyib")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 8
@@ -262,5 +302,26 @@ linear_damp = 0.25
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityEffect/GravityNearRepel"]
 shape = SubResource("CircleShape2D_yw30f")
 
+[node name="PushBulletsAway" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 12.0
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+linear_damp_space_override = 1
+linear_damp = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushBulletsAway"]
+shape = SubResource("CircleShape2D_rgyib")
+
+[node name="PushAwayAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8t03j")
+}
+
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]
 [connection signal="animation_finished" from="ShieldAnimator" to="." method="_on_shield_animator_animation_finished"]
+[connection signal="animation_finished" from="PushAwayAnimator" to="." method="_on_push_away_animator_animation_finished"]

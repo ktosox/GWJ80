@@ -10,6 +10,8 @@ class_name EnemyPackage # used for spawning enemies, contains all of the variabl
 
 @export var enemy_core = preload("res://enemy/enemy_core.tscn") as PackedScene
 
+@export var spawn_pick_up = false
+
 func get_core() -> PackedScene:
 	return enemy_core
 

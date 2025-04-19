@@ -15,6 +15,7 @@ func _ready():
 	connect("player_got_hit",Callable(GameManager,"change_health"))
 	GameManager.connect("enable_shield", Callable(self, "enable_shield"))
 	GameManager.connect("speed_changed", Callable(self, "change_speed"))
+	GameManager.connect("gravity_fx", Callable(self, "push_away_bullets"))
 
 func _physics_process(delta: float) -> void:
 	
@@ -53,3 +54,9 @@ func enable_shield():
 func change_speed(normal_speed_):
 	normal_speed = normal_speed_
 	
+func push_away_bullets():
+	$PushAwayAnimator.play("push_away")
+
+func _on_push_away_animator_animation_finished(anim_name: StringName) -> void:
+	GameManager.pick_up_enabled = false
+	pass # Replace with function body.
