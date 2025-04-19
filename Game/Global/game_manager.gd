@@ -6,8 +6,6 @@ signal health_changed(new_health)
 
 signal game_over()
 
-signal changePlayerState()
-
 @export var game_over_scene : PackedScene
 
 @export var current_player : CharacterBody2D
@@ -53,6 +51,3 @@ func lose_game():
 	var game_over = game_over_scene.instantiate()
 	get_tree().current_scene.add_child(game_over)
 	pass
-
-func on_pickup_collected():
-	changePlayerState.emit()
