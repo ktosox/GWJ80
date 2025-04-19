@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=24 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bygki10hkju7g" path="res://player/player_hit.wav" id="4_boad6"]
 [ext_resource type="Texture2D" uid="uid://xbkisvgjxf3m" path="res://pick_up/shield_pickup.png" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://b03qhqa583q7" path="res://player/player_gun.tscn" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bbes6ar5omrng" path="res://player/shield_animator.gd" id="7_boad6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
@@ -37,18 +38,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_rkbax")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GreenCircle:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_rkbax"]
@@ -240,7 +229,6 @@ collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
-visible = false
 
 [node name="AudioComponent" parent="HitBox" instance=ExtResource("3_g6k8r")]
 signal_name = "hit_detected"
@@ -286,6 +274,7 @@ angular_damp = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityEffect"]
 shape = SubResource("CircleShape2D_g1dw6")
+disabled = true
 
 [node name="GravityNearRepel" type="Area2D" parent="GravityEffect"]
 collision_layer = 0
@@ -301,6 +290,10 @@ linear_damp = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityEffect/GravityNearRepel"]
 shape = SubResource("CircleShape2D_yw30f")
+disabled = true
+
+[node name="gun" parent="." instance=ExtResource("5_qjkh3")]
+position = Vector2(65, 0)
 
 [node name="PushBulletsAway" type="Area2D" parent="."]
 collision_layer = 0
