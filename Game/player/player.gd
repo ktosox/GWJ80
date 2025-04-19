@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal player_got_hit(damage)
-@onready var capture_powerup_animator: AnimationPlayer = $capturePowerupAnimator
+
 
 var ammo = 0
 const SPEED = 300.0
@@ -31,6 +31,3 @@ func _on_hit_box_hit_detected() -> void:
 func on_death_detected():
 	$DamageAnimator.stop()
 	$DamageAnimator.play("death")
-
-func powerupPickedUp():
-	capture_powerup_animator.call_deferred("play", "vacuumState")
