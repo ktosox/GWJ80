@@ -27,7 +27,7 @@ func spawn_enemy(wave : int, spawn_pick_up : bool):
 	await get_tree().create_timer(0.5).timeout # give it a moment to prevent an error
 
 	new_enemy.global_position = global_position
-	new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
+	#new_enemy.connect("tree_exiting",Callable(self,"spawn_enemy"))
 	enemy_group_node.add_child(new_enemy)
 	
 

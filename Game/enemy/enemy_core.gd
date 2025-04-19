@@ -19,5 +19,6 @@ func _on_hit_box_hit_detected() -> void:
 	health -= 1
 	if(health <= 0):
 		GameManager.change_score(1)
-		delete_this_enemy()
+		call_deferred("delete_this_enemy")
+
 	pass # Replace with function body.

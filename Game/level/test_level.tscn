@@ -68,11 +68,11 @@ position = Vector2(594, 327)
 [node name="UI" parent="." instance=ExtResource("4_owtjd")]
 
 [node name="wave_timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 22.0
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 6.0
 autostart = true
 
 [node name="FixedSquare" type="Sprite2D" parent="."]
