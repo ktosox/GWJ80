@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd5sro7njtben"]
 
 [ext_resource type="Script" uid="uid://bwnm4582nsew" path="res://enemy/walker/bouncy_walker.gd" id="1_67pyj"]
-[ext_resource type="Texture2D" uid="uid://c6ajqpqljx45" path="res://shapes/hexagon.png" id="1_qf8dm"]
+[ext_resource type="Texture2D" uid="uid://s2c3swermptg" path="res://shapes/octagon.png" id="2_67pyj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_67pyj"]
 bounce = 1.0
@@ -20,6 +20,7 @@ script = ExtResource("1_67pyj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d0ks8")
 
-[node name="Hexagon" type="Sprite2D" parent="."]
-scale = Vector2(0.235, 0.235)
-texture = ExtResource("1_qf8dm")
+[node name="Octagon" type="Sprite2D" parent="."]
+modulate = Color(0.59536, 0.000200224, 0.575449, 1)
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("2_67pyj")

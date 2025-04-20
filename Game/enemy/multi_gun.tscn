@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://chtkeocw7702o" path="res://enemy/multi_gun.gd" id="1_0s6dv"]
 [ext_resource type="PackedScene" uid="uid://vjexxy0oei3q" path="res://bullet/bullet.tscn" id="2_udwkg"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_lpk84"]
-[ext_resource type="Texture2D" uid="uid://ck7qx7kqre8p6" path="res://shapes/gun.png" id="3_qqumo"]
 [ext_resource type="AudioStream" uid="uid://bu4edkioj032m" path="res://enemy/shoot.wav" id="4_kyqt5"]
+
+[sub_resource type="Curve" id="Curve_eaqiw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.824324), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="MultiGun" type="Node2D"]
 script = ExtResource("1_0s6dv")
@@ -18,21 +21,33 @@ autostart = true
 signal_name = "timeout"
 audio = ExtResource("4_kyqt5")
 
-[node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(16, -9)
-rotation = -0.335684
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_qqumo")
+[node name="Gun" type="Line2D" parent="."]
+position = Vector2(26, 0)
+scale = Vector2(1, 1)
+points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
+width = 9.0
+width_curve = SubResource("Curve_eaqiw")
+default_color = Color(1, 0.272341, 0.227895, 1)
+begin_cap_mode = 2
 
-[node name="Gun2" type="Sprite2D" parent="."]
-position = Vector2(17, -9.53674e-07)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_qqumo")
-
-[node name="Gun3" type="Sprite2D" parent="."]
-position = Vector2(16, 8)
+[node name="Gun2" type="Line2D" parent="."]
+position = Vector2(24, 11)
 rotation = 0.331613
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_qqumo")
+scale = Vector2(1, 1)
+points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
+width = 9.0
+width_curve = SubResource("Curve_eaqiw")
+default_color = Color(1, 0.272341, 0.227895, 1)
+begin_cap_mode = 2
+
+[node name="Gun3" type="Line2D" parent="."]
+position = Vector2(24, -12)
+rotation = -0.331613
+scale = Vector2(1, 1)
+points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
+width = 9.0
+width_curve = SubResource("Curve_eaqiw")
+default_color = Color(1, 0.272341, 0.227895, 1)
+begin_cap_mode = 2
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

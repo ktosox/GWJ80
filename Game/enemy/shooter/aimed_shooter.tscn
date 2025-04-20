@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dov3akcxyfqrp"]
+[gd_scene load_steps=3 format=3 uid="uid://dov3akcxyfqrp"]
 
 [ext_resource type="Script" uid="uid://746lwkp73t6h" path="res://enemy/shooter/aimed_shooter.gd" id="1_hf4ie"]
+[ext_resource type="Texture2D" uid="uid://giw637mo7mkx" path="res://shapes/triangle.png" id="2_hf4ie"]
 
 [node name="AimedShooter" type="Node2D"]
 script = ExtResource("1_hf4ie")
+
+[node name="Triangle" type="Sprite2D" parent="."]
+modulate = Color(0.87589, 0.311852, 0.123727, 1)
+position = Vector2(4, 0)
+rotation = 1.5708
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_hf4ie")
 
 [node name="GunSpot" type="Marker2D" parent="."]
 position = Vector2(8, 0)
