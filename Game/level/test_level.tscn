@@ -76,7 +76,6 @@ wait_time = 6.0
 autostart = true
 
 [node name="FixedSquare" type="Sprite2D" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = -10
 position = Vector2(547, 293)
@@ -85,6 +84,7 @@ texture = ExtResource("5_22gpc")
 
 [node name="pickup" parent="." instance=ExtResource("6_xowea")]
 position = Vector2(353, 283)
+pickup_type = 3
 randomize_pickup = false
 
 [node name="LevelMusic" parent="." instance=ExtResource("7_kopq5")]

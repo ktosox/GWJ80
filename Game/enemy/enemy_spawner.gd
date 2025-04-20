@@ -21,7 +21,7 @@ func spawn_enemy(wave : int, spawn_pick_up : bool):
 		#random_enemy = randi_range(0, 2)
 	#
 	#get_enemy(random_enemy, spawn_pick_up)
-	var chosen_enemy_package = all_enemy_packages[max(0,wave-2+randi()%2)]
+	var chosen_enemy_package = all_enemy_packages[min(max(0,wave-2+randi()%2), 3)]
 	chosen_enemy_package.spawn_pick_up = spawn_pick_up
 	var new_enemy = create_enemy_from_package(chosen_enemy_package)
 	await get_tree().create_timer(0.5).timeout # give it a moment to prevent an error

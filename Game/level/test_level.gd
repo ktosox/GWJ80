@@ -20,6 +20,7 @@ func _ready() -> void:
 	#print($enemy_spawners.get_child_count())
 	GameManager.set_health(3)
 	GameManager.set_score(0)
+	GameManager.pick_up_enabled =false
 	Global.load_game()
 	
 	ui.get_node("Layout/Wave").text = "Wave "+str(wave)
@@ -45,5 +46,6 @@ func _on_spawn_timer_timeout() -> void:
 		pickup_enemy_count = 0
 		
 func clear_enemies():
+	GameManager.current_score += $enemy_group_node.get_child_count()
 	for i in $enemy_group_node.get_children():
 		i.queue_free()

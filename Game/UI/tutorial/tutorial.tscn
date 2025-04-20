@@ -16,22 +16,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="title" type="Label" parent="ui"]
-layout_mode = 0
-offset_left = 446.0
-offset_top = 49.0
-offset_right = 728.0
-offset_bottom = 114.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 465.0
+offset_top = 23.0
+offset_right = 747.0
+offset_bottom = 88.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_dqavn")
 text = "Tutorial"
 label_settings = SubResource("LabelSettings_1kcp8")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="movement" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 472.0
+offset_left = 499.0
 offset_top = 144.0
-offset_right = 677.0
+offset_right = 704.0
 offset_bottom = 169.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 24
@@ -39,9 +42,9 @@ text = "WASD For movement"
 
 [node name="shooting" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 322.0
+offset_left = 343.0
 offset_top = 194.0
-offset_right = 895.0
+offset_right = 916.0
 offset_bottom = 226.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 24
@@ -49,18 +52,18 @@ text = "use  Mouse  to  point  and Left Mouse  button  to shoot"
 
 [node name="enemies" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 289.0
+offset_left = 312.0
 offset_top = 252.0
-offset_right = 930.0
+offset_right = 953.0
 offset_bottom = 292.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 24
 text = "Enemies  will  spawn  from  any  of  the four  edges  in  waves "
 
 [node name="Label" type="Label" parent="."]
-offset_left = 456.0
+offset_left = 466.0
 offset_top = 356.0
-offset_right = 732.0
+offset_right = 754.0
 offset_bottom = 392.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 20
