@@ -1,19 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4maxws4qtjvs"]
+[gd_scene load_steps=13 format=3 uid="uid://b4maxws4qtjvs"]
 
 [ext_resource type="Script" uid="uid://cgdf8w0gpulhp" path="res://UI/tutorial/tutorial.gd" id="1_1kcp8"]
 [ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="1_dqavn"]
+[ext_resource type="Texture2D" uid="uid://bfdxrurh7f43t" path="res://UI/tutorial/example_picture2.png" id="3_1r6yl"]
+[ext_resource type="Texture2D" uid="uid://dta1gmbn1qkr8" path="res://UI/tutorial/example_picture1.png" id="4_ws3i7"]
+[ext_resource type="Texture2D" uid="uid://dxyfaovoncot1" path="res://UI/tutorial/tutorial_arrows_enemies.png" id="5_3vblb"]
+[ext_resource type="Texture2D" uid="uid://gw25icqj7xd8" path="res://UI/tutorial/example_picture3.png" id="6_gvgm2"]
+[ext_resource type="Texture2D" uid="uid://3c5h7d1608s1" path="res://UI/tutorial/tutorial_arrows_grabber.png" id="6_vxtl0"]
+
+[sub_resource type="Theme" id="Theme_1kcp8"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_dqavn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kcp8"]
 font_size = 64
 
+[sub_resource type="Animation" id="Animation_vxtl0"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gvgm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u01b6"]
+_data = {
+&"RESET": SubResource("Animation_gvgm2"),
+&"new_animation": SubResource("Animation_vxtl0")
+}
+
 [node name="tutorial" type="CanvasLayer"]
 script = ExtResource("1_1kcp8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_1kcp8")
 
 [node name="title" type="Label" parent="ui"]
 layout_mode = 1
@@ -32,39 +90,117 @@ vertical_alignment = 1
 
 [node name="movement" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 499.0
-offset_top = 144.0
-offset_right = 704.0
-offset_bottom = 169.0
+offset_left = 41.0
+offset_top = 96.0
+offset_right = 477.0
+offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 24
-text = "WASD For movement"
-
-[node name="shooting" type="Label" parent="ui"]
-layout_mode = 0
-offset_left = 343.0
-offset_top = 194.0
-offset_right = 916.0
-offset_bottom = 226.0
-theme_override_fonts/font = ExtResource("1_dqavn")
-theme_override_font_sizes/font_size = 24
-text = "use  Mouse  to  point  and Left Mouse  button  to shoot"
+text = "WASD  For  movement   "
+horizontal_alignment = 1
 
 [node name="enemies" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 252.0
-offset_right = 953.0
-offset_bottom = 292.0
+offset_left = 587.0
+offset_top = 362.0
+offset_right = 1228.0
+offset_bottom = 499.0
 theme_override_fonts/font = ExtResource("1_dqavn")
 theme_override_font_sizes/font_size = 24
-text = "Enemies  will  spawn  from  any  of  the four  edges  in  waves "
+text = "Enemies  will  spawn  from  any  of  the four  edges  in  waves 
 
-[node name="Label" type="Label" parent="."]
-offset_left = 466.0
-offset_top = 356.0
-offset_right = 754.0
-offset_bottom = 392.0
-theme_override_fonts/font = ExtResource("1_dqavn")
-theme_override_font_sizes/font_size = 20
+use  thier    own   bullets   against  them
+
+"
+
+[node name="Label" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 238.0
+offset_right = 1249.0
+offset_bottom = 271.0
+text = "you can change input in  options  by  pressing \"q\""
+
+[node name="Label3" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 573.0
+offset_right = 777.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 0
 text = "press  enter  to  exit  tutorial"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/Label3"]
+libraries = {
+&"": SubResource("AnimationLibrary_u01b6")
+}
+autoplay = "new_animation"
+
+[node name="Label2" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 225.0
+offset_right = 1177.0
+offset_bottom = 250.0
+
+[node name="Label4" type="Label" parent="ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="Label5" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 153.0
+offset_right = 903.0
+offset_bottom = 206.0
+text = "grab  white  bullets  with  your   light blue   grabber
+use  Mouse  to  point and Left Mouse  button  to   shoot"
+
+[node name="Label6" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 372.0
+offset_right = 334.0
+offset_bottom = 677.0
+text = "Bonus health
+
+
+shield
+
+repel  bullets
+
+clear  screen
+
+
+bonus  speed"
+
+[node name="Label7" type="Label" parent="ui"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 294.0
+offset_right = 398.0
+offset_bottom = 319.0
+text = "helpful  items   drop   from   enemies"
+
+[node name="ExamplePicture2" type="Sprite2D" parent="."]
+position = Vector2(100, 524)
+texture = ExtResource("3_1r6yl")
+
+[node name="ExamplePicture1" type="Sprite2D" parent="."]
+position = Vector2(1006, 135)
+texture = ExtResource("4_ws3i7")
+
+[node name="TutorialArrowsGrabber" type="Sprite2D" parent="."]
+modulate = Color(0.380392, 1, 1, 1)
+position = Vector2(1137, 129)
+texture = ExtResource("6_vxtl0")
+
+[node name="ExamplePicture3" type="Sprite2D" parent="."]
+position = Vector2(996, 589)
+texture = ExtResource("6_gvgm2")
+
+[node name="TutorialArrowsEnemies" type="Sprite2D" parent="."]
+modulate = Color(0.784537, 0, 0.118585, 1)
+position = Vector2(996, 523)
+texture = ExtResource("5_3vblb")
