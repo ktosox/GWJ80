@@ -84,7 +84,7 @@ texture = ExtResource("5_22gpc")
 
 [node name="pickup" parent="." instance=ExtResource("6_xowea")]
 position = Vector2(353, 283)
-pickup_type = 3
+pickup_type = 4
 randomize_pickup = false
 
 [node name="LevelMusic" parent="." instance=ExtResource("7_kopq5")]
