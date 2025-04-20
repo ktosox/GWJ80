@@ -18,6 +18,8 @@ signal gravity_fx()
 
 @export var options_scene: PackedScene
 
+@export var tutorial_scene: PackedScene
+
 @export var current_player : CharacterBody2D
 
 @export var current_score : int
@@ -27,7 +29,7 @@ signal gravity_fx()
 var pick_up : String 
 var pick_up_enabled : bool = false
 var isInOptions : bool = false
-
+var isInTutorial : bool = false
 
 func change_score(amount = 0):
 	current_score += amount
@@ -96,6 +98,7 @@ func _on_pick_up_timer_timeout() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("options access"):
 		manage_Options()
+	
 
 func manage_Options():
 	var options = options_scene.instantiate()
@@ -105,3 +108,12 @@ func manage_Options():
 	else:
 		isInOptions = false
 		#options handles this itself because bugs
+
+func manage_tutorial():
+	var tutorial = tutorial_scene.instantiate()
+	if not isInTutorial:
+		get_tree().current_scene.add_child(tutorial)
+		isInTutorial = true
+	else:
+		isInTutorial = false
+		

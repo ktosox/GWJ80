@@ -10,3 +10,8 @@ func _input(event: InputEvent) -> void:
 		
 		Engine.time_scale = 1.0
 		queue_free() # Replace with function body.
+
+
+func _on_tutorial_btn_pressed() -> void:
+	GameManager.manage_tutorial()
+	queue_free()

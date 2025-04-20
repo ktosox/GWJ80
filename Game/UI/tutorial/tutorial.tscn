@@ -1,9 +1,63 @@
-[gd_scene format=3 uid="uid://b4maxws4qtjvs"]
+[gd_scene load_steps=4 format=3 uid="uid://b4maxws4qtjvs"]
 
-[node name="tutorial" type="Control"]
+[ext_resource type="Script" uid="uid://cgdf8w0gpulhp" path="res://UI/tutorial/tutorial.gd" id="1_1kcp8"]
+[ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="1_dqavn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1kcp8"]
+font_size = 64
+
+[node name="tutorial" type="CanvasLayer"]
+script = ExtResource("1_1kcp8")
+
+[node name="ui" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="title" type="Label" parent="ui"]
+offset_left = 446.0
+offset_top = 49.0
+offset_right = 728.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_dqavn")
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_1kcp8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="movement" type="Label" parent="ui"]
+offset_left = 472.0
+offset_top = 144.0
+offset_right = 677.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("1_dqavn")
+theme_override_font_sizes/font_size = 24
+text = "WASD For movement"
+
+[node name="shooting" type="Label" parent="ui"]
+offset_left = 322.0
+offset_top = 194.0
+offset_right = 895.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("1_dqavn")
+theme_override_font_sizes/font_size = 24
+text = "use  Mouse  to  point  and Left Mouse  button  to shoot"
+
+[node name="enemies" type="Label" parent="ui"]
+offset_left = 289.0
+offset_top = 252.0
+offset_right = 930.0
+offset_bottom = 292.0
+theme_override_fonts/font = ExtResource("1_dqavn")
+theme_override_font_sizes/font_size = 24
+text = "Enemies  will  spawn  from  any  of  the four  edges  in  waves "
+
+[node name="Label" type="Label" parent="."]
+offset_left = 456.0
+offset_top = 356.0
+offset_right = 732.0
+offset_bottom = 392.0
+theme_override_fonts/font = ExtResource("1_dqavn")
+theme_override_font_sizes/font_size = 20
+text = "press  enter  to  exit  tutorial"

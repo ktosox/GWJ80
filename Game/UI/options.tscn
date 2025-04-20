@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://m6ru2o2ga2bh"]
 
-[ext_resource type="Script" path="res://UI/options.gd" id="1_b7fs8"]
+[ext_resource type="Script" uid="uid://cs3b5mdbqkmi7" path="res://UI/options.gd" id="1_b7fs8"]
 [ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="2_m8fpw"]
 [ext_resource type="PackedScene" uid="uid://cxch7x2j3wv3p" path="res://UI/options/volume_slider.tscn" id="2_q8egh"]
 [ext_resource type="AudioStream" uid="uid://vmtv1fedj7y1" path="res://bullet/bullet_activated.wav" id="4_cubmi"]
@@ -181,3 +181,14 @@ offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
 text = "left:"
+
+[node name="tutorial_btn" type="Button" parent="."]
+offset_left = 941.0
+offset_top = 149.0
+offset_right = 1119.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 20
+text = "Click to Show Tutorial"
+
+[connection signal="pressed" from="tutorial_btn" to="." method="_on_tutorial_btn_pressed"]

@@ -27,7 +27,7 @@ func _ready() -> void:
 	enemy_spawners = $enemy_spawners.get_children()
 	
 	GameManager.connect("screen_cleaner", Callable(self, "clear_enemies")) # I had no idea it was supposed to work this way, seems kinda OP
-	
+	GameManager.manage_tutorial()
 
 
 func _on_wave_timer_timeout() -> void:

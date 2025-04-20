@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsuiktn4hmas4"]
+[gd_scene load_steps=5 format=3 uid="uid://bsuiktn4hmas4"]
 
 [ext_resource type="Script" uid="uid://cg72kwctsprse" path="res://Global/game_manager.gd" id="1_es8qg"]
 [ext_resource type="PackedScene" uid="uid://b0tj6ma6afh21" path="res://UI/game_over.tscn" id="2_0ke1m"]
-[ext_resource type="PackedScene" uid="uid://nr1s6q8ernqq" path="res://UI/options.tscn" id="3_avqtn"]
+[ext_resource type="PackedScene" uid="uid://m6ru2o2ga2bh" path="res://UI/options.tscn" id="3_avqtn"]
+[ext_resource type="PackedScene" uid="uid://b4maxws4qtjvs" path="res://UI/tutorial/tutorial.tscn" id="4_d3gky"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_es8qg")
 game_over_scene = ExtResource("2_0ke1m")
 options_scene = ExtResource("3_avqtn")
+tutorial_scene = ExtResource("4_d3gky")
 
 [node name="pick_up_timer" type="Timer" parent="."]
 wait_time = 5.0
