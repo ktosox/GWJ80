@@ -2,6 +2,8 @@ extends Node
 
 signal score_changed(new_score)
 
+signal update_high_score(high_score)
+
 signal health_changed(new_health)
 
 signal game_over()
@@ -66,9 +68,6 @@ func lose_game():
 	get_tree().current_scene.add_child(game_over)
 	pass
 
-
-	
-
 func enable_pick_up(pick_up_ : String):
 	pick_up_enabled = true
 	pick_up = pick_up_
@@ -81,11 +80,13 @@ func enable_pick_up(pick_up_ : String):
 		emit_signal("enable_shield")
 	elif (pick_up_ == "screen_cleaner"):
 		emit_signal("screen_cleaner")
+		
 	elif (pick_up_ == "gravity_fx"):
 		emit_signal("gravity_fx")
 	
-
-
 func _on_pick_up_timer_timeout() -> void:
 	pick_up_enabled = false
 	emit_signal("speed_changed", true)
+
+func _update_high_score():
+	emit_signal("update_high_score", Global.high_score)

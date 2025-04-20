@@ -15,9 +15,11 @@ var pickup_enemy_max = 1
 
 func _ready() -> void:
 	#Global.save_game() 
+	Global.load_game()
 	GameManager.set_health(3)
 	GameManager.set_score(0)
-	Global.load_game()
+	GameManager._update_high_score()
+	
 	
 	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
 	enemy_spawners = $enemy_spawners.get_children()
@@ -40,5 +42,6 @@ func _on_spawn_timer_timeout() -> void:
 		pickup_enemy_count = 0
 		
 func clear_enemies():
+	GameManager.change_score($enemy_group_node.get_child_count())
 	for i in $enemy_group_node.get_children():
 		i.queue_free()

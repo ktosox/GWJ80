@@ -72,7 +72,7 @@ wait_time = 30.0
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 4.0
 autostart = true
 
 [node name="FixedSquare" type="Sprite2D" parent="."]
