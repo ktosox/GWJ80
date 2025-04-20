@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://nr1s6q8ernqq"]
+[gd_scene load_steps=6 format=3 uid="uid://m6ru2o2ga2bh"]
 
-[ext_resource type="Script" uid="uid://cs3b5mdbqkmi7" path="res://UI/options.gd" id="1_b7fs8"]
+[ext_resource type="Script" path="res://UI/options.gd" id="1_b7fs8"]
 [ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="2_m8fpw"]
 [ext_resource type="PackedScene" uid="uid://cxch7x2j3wv3p" path="res://UI/options/volume_slider.tscn" id="2_q8egh"]
 [ext_resource type="AudioStream" uid="uid://vmtv1fedj7y1" path="res://bullet/bullet_activated.wav" id="4_cubmi"]

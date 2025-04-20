@@ -17,12 +17,15 @@ var pickup_enemy_max = 1
 
 func _ready() -> void:
 	#Global.save_game() 
+	print($enemy_spawners.get_child_count())
 	GameManager.set_health(3)
 	GameManager.set_score(0)
 	Global.load_game()
 	
 	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
+	
 	enemy_spawners = $enemy_spawners.get_children()
+	
 	GameManager.connect("screen_cleaner", Callable(self, "clear_enemies")) # I had no idea it was supposed to work this way, seems kinda OP
 	
 
