@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://bygki10hkju7g" path="res://player/player_hit.wav" id="4_boad6"]
 [ext_resource type="Texture2D" uid="uid://xbkisvgjxf3m" path="res://pick_up/shield_pickup.png" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
-[ext_resource type="PackedScene" uid="uid://b03qhqa583q7" path="res://player/player_gun.tscn" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://bbes6ar5omrng" path="res://player/shield_animator.gd" id="7_boad6"]
+[ext_resource type="PackedScene" uid="uid://dbnyrqfcg7nv7" path="res://player/grabby_player_gun.tscn" id="10_8t03j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 22.0
@@ -229,6 +229,7 @@ collision_mask = 8
 script = ExtResource("1_rkbax")
 
 [node name="HitBox" parent="." instance=ExtResource("1_oul6g")]
+collision_mask = 32
 
 [node name="AudioComponent" parent="HitBox" instance=ExtResource("3_g6k8r")]
 signal_name = "hit_detected"
@@ -292,8 +293,7 @@ linear_damp = 0.25
 shape = SubResource("CircleShape2D_yw30f")
 disabled = true
 
-[node name="gun" parent="." instance=ExtResource("5_qjkh3")]
-position = Vector2(65, 0)
+[node name="GrabbyPlayerGun" parent="." instance=ExtResource("10_8t03j")]
 
 [node name="PushBulletsAway" type="Area2D" parent="."]
 collision_layer = 0

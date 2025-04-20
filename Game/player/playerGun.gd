@@ -17,7 +17,9 @@ func shoot():
 		bullet.global_rotation = global_rotation
 		bullet.linear_velocity = bullet_speed * Vector2.RIGHT.rotated(global_rotation)
 		ammo -= 1
-
+	else:
+		# a "no ammo" sound could go here
+		pass
 
 func spawnBullet():
 	var bulletInstance = BulletScene.instantiate()
