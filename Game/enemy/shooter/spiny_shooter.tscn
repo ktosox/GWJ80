@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dexaeb0yjvpmy"]
+[gd_scene load_steps=6 format=3 uid="uid://dexaeb0yjvpmy"]
 
 [ext_resource type="Script" uid="uid://doexvh7xjsgna" path="res://enemy/shooter/spiny_shooter.gd" id="1_iacun"]
+[ext_resource type="Texture2D" uid="uid://c6ajqpqljx45" path="res://shapes/hexagon.png" id="2_iacun"]
 
 [sub_resource type="Animation" id="Animation_0kxyt"]
 length = 0.001
@@ -47,6 +48,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_rqr2d")
 }
 autoplay = "new_animation"
+
+[node name="Hexagon" type="Sprite2D" parent="."]
+modulate = Color(0.999987, 0.194288, 0.425484, 1)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_iacun")
 
 [node name="GunSpotA" type="Marker2D" parent="."]
 position = Vector2(8, 0)

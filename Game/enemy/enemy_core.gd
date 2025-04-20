@@ -15,8 +15,15 @@ func delete_this_enemy():
 	pass
 
 
+
+
+
 func _on_hit_box_hit_detected() -> void:
 	health -= 1
+	var look_for_player = get_tree().get_nodes_in_group("Player")
+	if look_for_player.size() > 0:
+		$Splatter.look_at(look_for_player[0].global_position)
+	$Splatter.set_deferred("emitting",true)
 	if(health <= 0):
 		GameManager.change_score(1)
 		call_deferred("delete_this_enemy")
