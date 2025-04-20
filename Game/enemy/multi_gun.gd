@@ -4,7 +4,7 @@ extends Node2D
 
 @export var bullet_scene : PackedScene
 
-const bullet_speed = 60
+@export var bullet_speed = 60
 
 func _ready() -> void:
 	$Cooldown.wait_time = cooldown

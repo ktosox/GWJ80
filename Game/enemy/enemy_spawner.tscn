@@ -13,13 +13,13 @@
 script = ExtResource("2_lc7nh")
 ID = 0
 walk_speed = 50
-health = 2
+health = 3
 enemy_core = ExtResource("3_7yjef")
 spawn_pick_up = false
 walker_type = 0
 shooter_type = 0
 guns = Array[PackedScene]([ExtResource("4_sm0a0")])
-bullet_speed = 60
+bullet_speed = 200
 attack_speed = 2.4
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
@@ -33,7 +33,7 @@ spawn_pick_up = false
 walker_type = 1
 shooter_type = 0
 guns = Array[PackedScene]([ExtResource("4_sm0a0"), ExtResource("4_sm0a0")])
-bullet_speed = 60
+bullet_speed = 140
 attack_speed = 0.75
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
@@ -47,13 +47,13 @@ spawn_pick_up = false
 walker_type = 0
 shooter_type = 1
 guns = Array[PackedScene]([ExtResource("5_7yjef")])
-bullet_speed = 60
+bullet_speed = 160
 attack_speed = 1.4
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
 [sub_resource type="Resource" id="Resource_y0occ"]
 script = ExtResource("2_lc7nh")
-ID = 0
+ID = 3
 walk_speed = 60
 health = 5
 enemy_core = ExtResource("3_7yjef")
@@ -61,7 +61,7 @@ spawn_pick_up = false
 walker_type = 1
 shooter_type = 1
 guns = Array[PackedScene]([ExtResource("4_sm0a0")])
-bullet_speed = 60
+bullet_speed = 240
 attack_speed = 1.0
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
