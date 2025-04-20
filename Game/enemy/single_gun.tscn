@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://lifkfy1d37r0"]
+[gd_scene load_steps=8 format=3 uid="uid://lifkfy1d37r0"]
 
 [ext_resource type="Script" uid="uid://pjnvebri1k3k" path="res://enemy/single_gun.gd" id="1_eaqiw"]
 [ext_resource type="PackedScene" uid="uid://vjexxy0oei3q" path="res://bullet/bullet.tscn" id="2_un3of"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_uk6nb"]
 [ext_resource type="AudioStream" uid="uid://bu4edkioj032m" path="res://enemy/shoot.wav" id="4_7thby"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_26duf"]
+playback_mode = 2
+random_pitch = 1.09
+streams_count = 1
+stream_0/stream = ExtResource("4_7thby")
+
 [sub_resource type="Curve" id="Curve_eaqiw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.824324), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_26duf"]
+colors = PackedColorArray(1, 0.366563, 0.310835, 1, 0, 0, 0, 1)
 
 [node name="SingleGun" type="Node2D"]
 script = ExtResource("1_eaqiw")
@@ -19,15 +28,15 @@ autostart = true
 
 [node name="AudioComponent" parent="Cooldown" instance=ExtResource("3_uk6nb")]
 signal_name = "timeout"
-audio = ExtResource("4_7thby")
+audio = SubResource("AudioStreamRandomizer_26duf")
 
 [node name="Gun2" type="Line2D" parent="."]
 position = Vector2(25, -7.17465e-43)
-scale = Vector2(1, 1)
 points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
 width = 9.0
 width_curve = SubResource("Curve_eaqiw")
 default_color = Color(1, 0.272341, 0.227895, 1)
+gradient = SubResource("Gradient_26duf")
 begin_cap_mode = 2
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

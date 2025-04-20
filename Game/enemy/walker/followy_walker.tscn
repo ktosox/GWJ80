@@ -43,6 +43,13 @@ rotation = 0.785398
 scale = Vector2(0.84, 0.84)
 texture = ExtResource("2_du3xm")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.415686)
+show_behind_parent = true
+rotation = 0.785398
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("2_du3xm")
+
 [connection signal="body_entered" from="TooFarRange" to="." method="_on_too_far_range_body_entered"]
 [connection signal="body_exited" from="TooFarRange" to="." method="_on_too_far_range_body_exited"]
 [connection signal="body_entered" from="TooCloseRange" to="." method="_on_too_close_range_body_entered"]

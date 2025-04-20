@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjolphmeflso6"]
+[gd_scene load_steps=7 format=3 uid="uid://bjolphmeflso6"]
 
 [ext_resource type="Script" uid="uid://chtkeocw7702o" path="res://enemy/multi_gun.gd" id="1_0s6dv"]
 [ext_resource type="PackedScene" uid="uid://vjexxy0oei3q" path="res://bullet/bullet.tscn" id="2_udwkg"]
@@ -8,6 +8,9 @@
 [sub_resource type="Curve" id="Curve_eaqiw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.824324), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2esfe"]
+colors = PackedColorArray(1, 0.366563, 0.310835, 1, 0, 0, 0, 1)
 
 [node name="MultiGun" type="Node2D"]
 script = ExtResource("1_0s6dv")
@@ -23,31 +26,30 @@ audio = ExtResource("4_kyqt5")
 
 [node name="Gun" type="Line2D" parent="."]
 position = Vector2(26, 0)
-scale = Vector2(1, 1)
 points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
 width = 9.0
 width_curve = SubResource("Curve_eaqiw")
 default_color = Color(1, 0.272341, 0.227895, 1)
+gradient = SubResource("Gradient_2esfe")
 begin_cap_mode = 2
 
 [node name="Gun2" type="Line2D" parent="."]
 position = Vector2(24, 11)
 rotation = 0.331613
-scale = Vector2(1, 1)
 points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
 width = 9.0
 width_curve = SubResource("Curve_eaqiw")
-default_color = Color(1, 0.272341, 0.227895, 1)
+gradient = SubResource("Gradient_2esfe")
 begin_cap_mode = 2
 
 [node name="Gun3" type="Line2D" parent="."]
-position = Vector2(24, -12)
+position = Vector2(24, -11)
 rotation = -0.331613
-scale = Vector2(1, 1)
 points = PackedVector2Array(-18, 0, 0, 0, 2, 0)
 width = 9.0
 width_curve = SubResource("Curve_eaqiw")
 default_color = Color(1, 0.272341, 0.227895, 1)
+gradient = SubResource("Gradient_2esfe")
 begin_cap_mode = 2
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

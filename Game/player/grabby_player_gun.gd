@@ -25,6 +25,8 @@ func shoot():
 
 
 func _on_lock_in_bullet_body_entered(body: RigidBody2D) -> void:
+	if grabbed_bullet != null:
+		return
 	emit_signal("grab")
 	body.set_collision_layer_value(6,false)
 	body.set_collision_layer_value(5,true)

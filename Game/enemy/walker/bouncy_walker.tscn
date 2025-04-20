@@ -24,3 +24,9 @@ shape = SubResource("CircleShape2D_d0ks8")
 modulate = Color(0.59536, 0.000200224, 0.575449, 1)
 scale = Vector2(0.265, 0.265)
 texture = ExtResource("2_67pyj")
+
+[node name="CheckSpeed" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[connection signal="timeout" from="CheckSpeed" to="." method="_on_check_speed_timeout"]
