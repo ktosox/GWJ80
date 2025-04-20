@@ -45,19 +45,19 @@ default_color = Color(0, 0.813436, 0.814732, 1)
 [node name="enemy_spawners" type="Node" parent="."]
 
 [node name="EnemySpawner" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(-56, 319)
+position = Vector2(60, 484)
 tracked_player = NodePath("../../Player")
 
 [node name="EnemySpawner2" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(1341, 396)
+position = Vector2(1166, 274)
 tracked_player = NodePath("../../Player")
 
 [node name="EnemySpawner3" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(565, 756)
+position = Vector2(442, 643)
 tracked_player = NodePath("../../Player")
 
 [node name="EnemySpawner4" parent="enemy_spawners" node_paths=PackedStringArray("tracked_player") instance=ExtResource("2_owtjd")]
-position = Vector2(711, -52)
+position = Vector2(890, 78)
 tracked_player = NodePath("../../Player")
 
 [node name="enemy_group_node" type="Node" parent="."]
@@ -68,7 +68,7 @@ position = Vector2(594, 327)
 [node name="UI" parent="." instance=ExtResource("4_owtjd")]
 
 [node name="wave_timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 22.0
 autostart = true
 
 [node name="spawn_timer" type="Timer" parent="."]
