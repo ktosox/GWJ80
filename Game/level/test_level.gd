@@ -17,7 +17,7 @@ var pickup_enemy_max = 1
 
 func _ready() -> void:
 	#Global.save_game() 
-	print($enemy_spawners.get_child_count())
+	#print($enemy_spawners.get_child_count())
 	GameManager.set_health(3)
 	GameManager.set_score(0)
 	Global.load_game()
