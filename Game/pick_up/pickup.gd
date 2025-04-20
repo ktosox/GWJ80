@@ -16,7 +16,6 @@ const GRAVITY_FX = preload("res://pick_up/gravity_fx.png")
 @onready var player = get_parent().get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	randomize_pickup = true
 	if randomize_pickup:
 		pickup_type = randi_range(0,Pickup.size())
 	if(pickup_type == Pickup.health):
