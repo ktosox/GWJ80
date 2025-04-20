@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce2r6mevl3dp2"]
+[gd_scene load_steps=2 format=3 uid="uid://byk0ja2lg8s8u"]
 
 [ext_resource type="Script" uid="uid://d3kq44lbqrr8l" path="res://UI/options/rebindable_action.gd" id="1"]
 
