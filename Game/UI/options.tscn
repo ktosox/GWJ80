@@ -1,0 +1,183 @@
+[gd_scene load_steps=6 format=3 uid="uid://nr1s6q8ernqq"]
+
+[ext_resource type="Script" uid="uid://cs3b5mdbqkmi7" path="res://UI/options.gd" id="1_b7fs8"]
+[ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="2_m8fpw"]
+[ext_resource type="PackedScene" uid="uid://cxch7x2j3wv3p" path="res://UI/options/volume_slider.tscn" id="2_q8egh"]
+[ext_resource type="AudioStream" uid="uid://vmtv1fedj7y1" path="res://bullet/bullet_activated.wav" id="4_cubmi"]
+[ext_resource type="PackedScene" uid="uid://ce2r6mevl3dp2" path="res://UI/options/rebindable_action.tscn" id="5_0xr1y"]
+
+[node name="options" type="CanvasLayer"]
+script = ExtResource("1_b7fs8")
+
+[node name="audioLabel" type="Label" parent="."]
+offset_left = 447.0
+offset_top = 325.0
+offset_right = 722.0
+offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 100
+text = "Audio"
+
+[node name="master" parent="audioLabel" instance=ExtResource("2_q8egh")]
+layout_mode = 0
+offset_left = -101.0
+offset_top = 95.0
+offset_right = 56.0
+offset_bottom = 111.0
+scale = Vector2(5.91489, 5.81959)
+
+[node name="Label" type="Label" parent="audioLabel/master"]
+layout_mode = 0
+offset_left = -48.8597
+offset_top = 0.687332
+offset_right = 281.14
+offset_bottom = 102.687
+scale = Vector2(0.136859, 0.160452)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 100
+text = "master"
+
+[node name="sound fx" parent="audioLabel" instance=ExtResource("2_q8egh")]
+layout_mode = 0
+offset_left = -105.0
+offset_top = 188.0
+offset_right = 53.0
+offset_bottom = 205.0
+scale = Vector2(5.91489, 5.81959)
+bus_name = &"sound fx"
+feedback_sound_path = NodePath("Label/AudioStreamPlayer")
+
+[node name="Label" type="Label" parent="audioLabel/sound fx"]
+layout_mode = 0
+offset_left = -56.8058
+offset_top = 0.859166
+offset_right = 341.194
+offset_bottom = 102.859
+scale = Vector2(0.136859, 0.160452)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 100
+text = "sound fx"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="audioLabel/sound fx/Label"]
+stream = ExtResource("4_cubmi")
+
+[node name="music" parent="audioLabel" instance=ExtResource("2_q8egh")]
+layout_mode = 0
+offset_left = -101.0
+offset_top = 296.0
+offset_right = 56.0
+offset_bottom = 312.0
+scale = Vector2(5.91489, 5.81959)
+bus_name = &"music"
+
+[node name="Label" type="Label" parent="audioLabel/music"]
+layout_mode = 0
+offset_left = -42.9425
+offset_top = 0.687332
+offset_right = 287.058
+offset_bottom = 102.687
+scale = Vector2(0.136859, 0.160452)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 100
+text = "music"
+
+[node name="rebindLabel" type="Label" parent="."]
+offset_left = 443.0
+offset_top = 12.0
+offset_right = 718.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 100
+text = "rebinds"
+
+[node name="upRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
+layout_mode = 0
+offset_left = -324.0
+offset_top = 96.0
+offset_right = -270.0
+offset_bottom = 155.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0.239886, 0.46276, 1, 1)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "W"
+action = "up"
+
+[node name="Label" type="Label" parent="rebindLabel/upRebind"]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -5.0
+offset_right = -5.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "up:"
+
+[node name="rightRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 149.0
+offset_right = 354.0
+offset_bottom = 208.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "D"
+action = "right"
+
+[node name="Label2" type="Label" parent="rebindLabel/rightRebind"]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -8.0
+offset_right = -2.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "right:"
+
+[node name="downRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
+layout_mode = 0
+offset_left = -318.0
+offset_top = 161.0
+offset_right = -264.0
+offset_bottom = 220.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "s"
+action = "down"
+
+[node name="Label3" type="Label" parent="rebindLabel/downRebind"]
+layout_mode = 0
+offset_left = -118.0
+offset_top = -5.0
+offset_right = 31.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "down:"
+
+[node name="leftRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 91.0
+offset_right = 349.0
+offset_bottom = 150.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "A"
+action = "left"
+
+[node name="Label4" type="Label" parent="rebindLabel/leftRebind"]
+layout_mode = 0
+offset_left = -115.0
+offset_top = -6.0
+offset_right = 34.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "left:"

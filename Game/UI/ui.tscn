@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dl1yyqk770ci1" path="res://UI/health_bar.gd" id="5_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://djda02mtoughq" path="res://UI/3_hearts.png" id="7_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="7_c7tqi"]
-[ext_resource type="Shader" path="res://UI/screen_shader.gdshader" id="7_cbfhl"]
+[ext_resource type="Shader" uid="uid://dcu3mpmaqkp33" path="res://UI/screen_shader.gdshader" id="7_cbfhl"]
 [ext_resource type="Script" uid="uid://u27fd3rxkx1a" path="res://UI/pick_up_ui.gd" id="8_4fiuh"]
 
 [sub_resource type="Environment" id="Environment_c7tqi"]

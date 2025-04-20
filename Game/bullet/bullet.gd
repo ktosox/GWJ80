@@ -13,11 +13,11 @@ func _on_body_entered(body: Node) -> void:
 	pass # Replace with function body.
 
 
-func _on_player_detector_body_entered(body: Node2D) -> void:
-	if !active:
-		$Line2D.default_color = Color("blue")
-		active = true
-		activated.emit()
+#func _on_player_detector_body_entered(body: Node2D) -> void:
+#	if !active:
+#		$Line2D.default_color = Color("blue")
+#		active = true
+#		activated.emit()
 
 
 #func _on_player_detector_body_exited(body: Node2D) -> void: # not connected in current version

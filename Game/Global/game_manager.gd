@@ -17,6 +17,8 @@ signal gravity_fx()
 
 @export var game_over_scene : PackedScene
 
+@export var options_scene: PackedScene
+
 @export var current_player : CharacterBody2D
 
 @export var current_score : int
@@ -25,6 +27,7 @@ signal gravity_fx()
 
 var pick_up : String 
 var pick_up_enabled : bool = false
+var isInOptions : bool = false
 
 
 func change_score(amount = 0):
@@ -86,3 +89,16 @@ func enable_pick_up(pick_up_ : String):
 func _on_pick_up_timer_timeout() -> void:
 	pick_up_enabled = false
 	emit_signal("speed_changed", true)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("options access"):
+		manage_Options()
+
+func manage_Options():
+	var options = options_scene.instantiate()
+	if not isInOptions:
+		get_tree().current_scene.add_child(options)
+		isInOptions = true
+	else:
+		isInOptions = false
+		#options handles this itself because bugs

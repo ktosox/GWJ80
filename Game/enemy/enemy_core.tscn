@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d27f70diafnal"]
+
+[ext_resource type="Script" uid="uid://cdq0eut7car66" path="res://enemy/enemy_core.gd" id="1_wq376"]
+[ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_ifaq0"]
+
+[node name="EnemyCore" type="Node2D"]
+script = ExtResource("1_wq376")
+
+[node name="HitBox" parent="." instance=ExtResource("2_ifaq0")]
+
+[connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal player_got_hit(damage)
 
+
+var ammo = 0
 const SPEED = 300.0
 const INC_SPEED = 500.0
 var pick_up_enabled : bool = false
@@ -12,13 +14,16 @@ var normal_speed : bool = true
 func _ready():
 	GameManager.current_player = self
 	GameManager.connect("game_over", Callable(self, "on_death_detected"))
+	GameManager.connect("changePlayerState", Callable(self, "powerupPickedUp"))
 	connect("player_got_hit",Callable(GameManager,"change_health"))
 	GameManager.connect("enable_shield", Callable(self, "enable_shield"))
 	GameManager.connect("speed_changed", Callable(self, "change_speed"))
+	GameManager.connect("gravity_fx", Callable(self, "push_away_bullets"))
 
 func _physics_process(delta: float) -> void:
-	
+
 	var direction := Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
+	look_at(get_global_mouse_position())
 	
 	if(normal_speed):
 		velocity = direction.normalized() * SPEED
@@ -53,3 +58,9 @@ func enable_shield():
 func change_speed(normal_speed_):
 	normal_speed = normal_speed_
 	
+func push_away_bullets():
+	$PushAwayAnimator.play("push_away")
+
+func _on_push_away_animator_animation_finished(anim_name: StringName) -> void:
+	GameManager.pick_up_enabled = false
+	pass # Replace with function body.
