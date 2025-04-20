@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var gun: Node2D = $"../gun"
+@onready var gun: Node2D = $".."
 
 const stuntCircleScene = preload("res://visuals/stunt_circle.tscn")
 

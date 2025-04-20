@@ -47,7 +47,8 @@ func on_death_detected():
 	$DamageAnimator.stop()
 	$DamageAnimator.play("death")
 
-
+func  powerupPickedUp():
+	pass
 
 func _on_shield_animator_animation_finished(anim_name: StringName) -> void:
 	GameManager.pick_up_enabled = false
