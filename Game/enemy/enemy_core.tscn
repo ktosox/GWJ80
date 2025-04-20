@@ -1,11 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://d27f70diafnal"]
+[gd_scene load_steps=5 format=3 uid="uid://d27f70diafnal"]
 
 [ext_resource type="Script" uid="uid://cdq0eut7car66" path="res://enemy/enemy_core.gd" id="1_wq376"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_ifaq0"]
+[ext_resource type="Texture2D" uid="uid://dhasl20m0a3su" path="res://shapes/small_line.png" id="3_cw2p4"]
+
+[sub_resource type="Gradient" id="Gradient_cw2p4"]
+offsets = PackedFloat32Array(0.708543, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.247059, 0.247059, 0.247059, 0)
 
 [node name="EnemyCore" type="Node2D"]
 script = ExtResource("1_wq376")
 
 [node name="HitBox" parent="." instance=ExtResource("2_ifaq0")]
+
+[node name="Splatter" type="CPUParticles2D" parent="."]
+rotation = -2.81696
+emitting = false
+amount = 14
+texture = ExtResource("3_cw2p4")
+lifetime = 0.9
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 201.79
+initial_velocity_max = 304.93
+damping_min = 4.933
+damping_max = 19.283
+scale_amount_min = 0.15
+scale_amount_max = 0.5
+color = Color(0.878738, 0.0512885, 0.201618, 1)
+color_ramp = SubResource("Gradient_cw2p4")
+hue_variation_min = 0.21
+hue_variation_max = 0.21
 
 [connection signal="hit_detected" from="HitBox" to="." method="_on_hit_box_hit_detected"]

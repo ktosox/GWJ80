@@ -60,6 +60,7 @@ func change_speed(normal_speed_):
 	normal_speed = normal_speed_
 	
 func push_away_bullets():
+
 	$PushAwayAnimator.play("push_away")
 
 func _on_push_away_animator_animation_finished(anim_name: StringName) -> void:

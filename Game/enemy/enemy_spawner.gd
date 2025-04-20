@@ -79,6 +79,7 @@ func create_enemy_from_package(data : EnemyPackage) -> RigidBody2D:
 	var new_shooter = data.get_shooter().instantiate()
 	new_shooter.attack_speed = data.attack_speed
 	new_shooter.guns = data.guns.duplicate()
+	new_shooter.bullet_speed = data.bullet_speed
 	# connect stuff by add children
 	new_walker.add_child(enemy_core)
 	enemy_core.add_child(new_shooter)
