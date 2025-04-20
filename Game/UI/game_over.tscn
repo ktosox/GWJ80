@@ -69,9 +69,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -210.0
-offset_top = -204.0
+offset_top = -324.0
 offset_right = 1148.0
-offset_bottom = 205.0
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -82,16 +82,32 @@ OVER"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 528.0
-offset_right = 1638.0
-offset_bottom = 937.0
+offset_left = 307.0
+offset_top = 447.0
+offset_right = 995.0
+offset_bottom = 528.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wruqd")
 theme_override_font_sizes/font_size = 75
 text = "press up to restart"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label2"]
+libraries = {
+&"": SubResource("AnimationLibrary_fmr02")
+}
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 543.0
+offset_right = 1198.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wruqd")
+theme_override_font_sizes/font_size = 75
+text = "press  down  to go  to  main  menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label3"]
 libraries = {
 &"": SubResource("AnimationLibrary_fmr02")
 }
