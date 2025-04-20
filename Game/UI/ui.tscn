@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dl1yyqk770ci1" path="res://UI/health_bar.gd" id="5_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://djda02mtoughq" path="res://UI/3_hearts.png" id="7_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="7_c7tqi"]
-[ext_resource type="Shader" path="res://UI/screen_shader.gdshader" id="7_cbfhl"]
+[ext_resource type="Shader" uid="uid://dcu3mpmaqkp33" path="res://UI/screen_shader.gdshader" id="7_cbfhl"]
 [ext_resource type="Script" uid="uid://u27fd3rxkx1a" path="res://UI/pick_up_ui.gd" id="8_4fiuh"]
 
 [sub_resource type="Environment" id="Environment_c7tqi"]
@@ -81,14 +81,14 @@ script = ExtResource("3_3sbvi")
 
 [node name="Wave" type="Label" parent="Layout"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 58.0
-offset_right = 92.0
-offset_bottom = 99.0
+offset_left = 13.0
+offset_top = 64.0
+offset_right = 90.0
+offset_bottom = 105.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_hat8c")
 theme_override_font_sizes/font_size = 30
-text = "Wave: "
+text = "Wave "
 
 [node name="healthBar" type="Control" parent="Layout" node_paths=PackedStringArray("heartNodes")]
 anchors_preset = 0

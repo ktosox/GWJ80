@@ -92,10 +92,10 @@ text = "rebinds"
 
 [node name="upRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
 layout_mode = 0
-offset_left = -324.0
-offset_top = 96.0
-offset_right = -270.0
-offset_bottom = 155.0
+offset_left = -224.0
+offset_top = 108.0
+offset_right = -170.0
+offset_bottom = 167.0
 theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_color = Color(0.239886, 0.46276, 1, 1)
 theme_override_fonts/font = ExtResource("2_m8fpw")
@@ -105,20 +105,20 @@ action = "up"
 
 [node name="Label" type="Label" parent="rebindLabel/upRebind"]
 layout_mode = 0
-offset_left = -71.0
-offset_top = -5.0
-offset_right = -5.0
-offset_bottom = 62.0
+offset_left = -67.0
+offset_top = 7.0
+offset_right = -1.0
+offset_bottom = 74.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
-text = "up:"
+text = "up"
 
 [node name="rightRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 149.0
-offset_right = 354.0
-offset_bottom = 208.0
+offset_left = 57.0
+offset_top = 166.0
+offset_right = 111.0
+offset_bottom = 225.0
 theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
 theme_override_fonts/font = ExtResource("2_m8fpw")
@@ -128,20 +128,20 @@ action = "right"
 
 [node name="Label2" type="Label" parent="rebindLabel/rightRebind"]
 layout_mode = 0
-offset_left = -151.0
-offset_top = -8.0
-offset_right = -2.0
-offset_bottom = 59.0
+offset_left = -135.0
+offset_top = 5.0
+offset_right = 14.0
+offset_bottom = 72.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
-text = "right:"
+text = "right"
 
 [node name="downRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
 layout_mode = 0
-offset_left = -318.0
-offset_top = 161.0
-offset_right = -264.0
-offset_bottom = 220.0
+offset_left = -224.0
+offset_top = 173.0
+offset_right = -170.0
+offset_bottom = 232.0
 theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
 theme_override_fonts/font = ExtResource("2_m8fpw")
@@ -151,20 +151,20 @@ action = "down"
 
 [node name="Label3" type="Label" parent="rebindLabel/downRebind"]
 layout_mode = 0
-offset_left = -118.0
-offset_top = -5.0
-offset_right = 31.0
-offset_bottom = 62.0
+offset_left = -116.0
+offset_top = 4.0
+offset_right = 33.0
+offset_bottom = 71.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
-text = "down:"
+text = "down"
 
 [node name="leftRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
 layout_mode = 0
-offset_left = 295.0
-offset_top = 91.0
-offset_right = 349.0
-offset_bottom = 150.0
+offset_left = 59.0
+offset_top = 102.0
+offset_right = 113.0
+offset_bottom = 161.0
 theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
 theme_override_fonts/font = ExtResource("2_m8fpw")
@@ -174,19 +174,41 @@ action = "left"
 
 [node name="Label4" type="Label" parent="rebindLabel/leftRebind"]
 layout_mode = 0
-offset_left = -115.0
-offset_top = -6.0
-offset_right = 34.0
-offset_bottom = 61.0
+offset_left = -143.0
+offset_right = 6.0
+offset_bottom = 67.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 50
-text = "left:"
+text = "left"
+
+[node name="shootRebind" parent="rebindLabel" instance=ExtResource("5_0xr1y")]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 146.0
+offset_right = 422.0
+offset_bottom = 205.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0.239216, 0.462745, 1, 1)
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "LMB"
+action = "shoot"
+
+[node name="Label4" type="Label" parent="rebindLabel/shootRebind"]
+layout_mode = 0
+offset_left = -138.0
+offset_top = 2.0
+offset_right = 27.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_m8fpw")
+theme_override_font_sizes/font_size = 50
+text = "shoot"
 
 [node name="tutorial_btn" type="Button" parent="."]
-offset_left = 941.0
-offset_top = 149.0
-offset_right = 1119.0
-offset_bottom = 221.0
+offset_left = 958.0
+offset_top = 109.0
+offset_right = 1184.0
+offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("2_m8fpw")
 theme_override_font_sizes/font_size = 20
 text = "Click to Show Tutorial"

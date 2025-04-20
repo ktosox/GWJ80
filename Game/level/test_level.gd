@@ -22,7 +22,7 @@ func _ready() -> void:
 	GameManager.set_score(0)
 	Global.load_game()
 	
-	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
+	ui.get_node("Layout/Wave").text = "Wave "+str(wave)
 	
 	enemy_spawners = $enemy_spawners.get_children()
 	
@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func _on_wave_timer_timeout() -> void:
 	wave += 1
-	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)
+	ui.get_node("Layout/Wave").text = "Wave "+str(wave)
 
 
 func _on_spawn_timer_timeout() -> void:

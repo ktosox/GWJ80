@@ -39,4 +39,4 @@ func _update_button_text(input_event: InputEvent) -> void:
 
 func _on_toggled(button_pressed_state):
 	if button_pressed_state:
-		text = "press a key..."
+		text = "press a key"
