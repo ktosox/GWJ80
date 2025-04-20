@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbnyrqfcg7nv7"]
+[gd_scene load_steps=7 format=3 uid="uid://dbnyrqfcg7nv7"]
 
 [ext_resource type="Script" uid="uid://bj7h17v83jd2r" path="res://player/grabby_player_gun.gd" id="1_ts3df"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="2_rg56g"]
+[ext_resource type="AudioStream" uid="uid://ceyax7ht3rwjk" path="res://player/bullet_grab.wav" id="3_slmqo"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q5jmc"]
+playback_mode = 2
+random_pitch = 1.07
+streams_count = 1
+stream_0/stream = ExtResource("3_slmqo")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p4bxy"]
 radius = 32.0
@@ -10,6 +18,10 @@ radius = 6.0
 
 [node name="GrabbyPlayerGun" type="Node2D"]
 script = ExtResource("1_ts3df")
+
+[node name="GrabSound" parent="." instance=ExtResource("2_rg56g")]
+signal_name = "grab"
+audio = SubResource("AudioStreamRandomizer_q5jmc")
 
 [node name="GrabPoint" type="Marker2D" parent="."]
 position = Vector2(44, 0)
