@@ -16,6 +16,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="title" type="Label" parent="ui"]
+layout_mode = 0
 offset_left = 446.0
 offset_top = 49.0
 offset_right = 728.0
@@ -27,6 +28,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="movement" type="Label" parent="ui"]
+layout_mode = 0
 offset_left = 472.0
 offset_top = 144.0
 offset_right = 677.0
@@ -36,6 +38,7 @@ theme_override_font_sizes/font_size = 24
 text = "WASD For movement"
 
 [node name="shooting" type="Label" parent="ui"]
+layout_mode = 0
 offset_left = 322.0
 offset_top = 194.0
 offset_right = 895.0
@@ -45,6 +48,7 @@ theme_override_font_sizes/font_size = 24
 text = "use  Mouse  to  point  and Left Mouse  button  to shoot"
 
 [node name="enemies" type="Label" parent="ui"]
+layout_mode = 0
 offset_left = 289.0
 offset_top = 252.0
 offset_right = 930.0
