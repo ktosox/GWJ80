@@ -31,10 +31,14 @@ func _on_lock_in_bullet_body_entered(body: RigidBody2D) -> void:
 	body.set_collision_layer_value(6,false)
 	body.set_collision_layer_value(5,true)
 	body.modulate = Color("Cyan")
+	$GrabPoint.global_rotation = body.linear_velocity.angle()
 	body.linear_velocity = Vector2.ZERO
 	body.set_deferred("freeze",true)
 	body.global_position = $GrabPoint.global_position
 	body.call_deferred("reparent",$GrabPoint)
+	
 	grabbed_bullet = body
+	
+	$GrabPoint/GrabAniamtor.call_deferred("play","new_animation")
 	$GrabPoint/SuckInBullets.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
 	pass # Replace with function body.

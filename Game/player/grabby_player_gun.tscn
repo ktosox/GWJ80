@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbnyrqfcg7nv7"]
+[gd_scene load_steps=10 format=3 uid="uid://dbnyrqfcg7nv7"]
 
 [ext_resource type="Script" uid="uid://bj7h17v83jd2r" path="res://player/grabby_player_gun.gd" id="1_ts3df"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="2_rg56g"]
@@ -9,6 +9,43 @@ playback_mode = 2
 random_pitch = 1.07
 streams_count = 1
 stream_0/stream = ExtResource("3_slmqo")
+
+[sub_resource type="Animation" id="Animation_rg56g"]
+resource_name = "new_animation"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualPart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_slmqo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualPart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5jmc"]
+_data = {
+&"RESET": SubResource("Animation_slmqo"),
+&"new_animation": SubResource("Animation_rg56g")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p4bxy"]
 radius = 32.0
@@ -26,6 +63,26 @@ audio = SubResource("AudioStreamRandomizer_q5jmc")
 [node name="GrabPoint" type="Marker2D" parent="."]
 position = Vector2(44, 0)
 
+[node name="VisualPart" type="Node2D" parent="GrabPoint"]
+
+[node name="Line2D" type="Line2D" parent="GrabPoint/VisualPart"]
+points = PackedVector2Array(-5, -1, -3, -5, 3, -5, 5, -1)
+width = 4.0
+default_color = Color(0.529412, 1, 1, 1)
+joint_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="GrabPoint/VisualPart"]
+scale = Vector2(1, -1)
+points = PackedVector2Array(-5, -1, -3, -5, 3, -5, 5, -1)
+width = 4.0
+default_color = Color(0.529412, 1, 1, 1)
+joint_mode = 1
+
+[node name="GrabAniamtor" type="AnimationPlayer" parent="GrabPoint"]
+libraries = {
+&"": SubResource("AnimationLibrary_q5jmc")
+}
+
 [node name="SuckInBullets" type="Area2D" parent="GrabPoint"]
 collision_layer = 0
 collision_mask = 32
@@ -40,19 +97,6 @@ linear_damp = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabPoint/SuckInBullets"]
 shape = SubResource("CircleShape2D_p4bxy")
-
-[node name="Line2D" type="Line2D" parent="GrabPoint"]
-points = PackedVector2Array(-5, -1, -3, -5, 3, -5, 5, -1)
-width = 4.0
-default_color = Color(0.529412, 1, 1, 1)
-joint_mode = 1
-
-[node name="Line2D2" type="Line2D" parent="GrabPoint"]
-scale = Vector2(1, -1)
-points = PackedVector2Array(-5, -1, -3, -5, 3, -5, 5, -1)
-width = 4.0
-default_color = Color(0.529412, 1, 1, 1)
-joint_mode = 1
 
 [node name="LockInBullet" type="Area2D" parent="GrabPoint"]
 collision_layer = 0
