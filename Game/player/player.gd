@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal player_got_hit(damage)
 
 
-var ammo = 0
+
 const SPEED = 300.0
 const INC_SPEED = 500.0
 var pick_up_enabled : bool = false
@@ -14,7 +14,7 @@ var normal_speed : bool = true
 func _ready():
 	GameManager.current_player = self
 	GameManager.connect("game_over", Callable(self, "on_death_detected"))
-	GameManager.connect("changePlayerState", Callable(self, "powerupPickedUp"))
+#	GameManager.connect("changePlayerState", Callable(self, "powerupPickedUp"))
 	connect("player_got_hit",Callable(GameManager,"change_health"))
 	GameManager.connect("enable_shield", Callable(self, "enable_shield"))
 	GameManager.connect("speed_changed", Callable(self, "change_speed"))
