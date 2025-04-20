@@ -45,10 +45,10 @@ texture = ExtResource("3_g5ubw")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 54.0
-offset_top = 100.0
-offset_right = 1270.0
-offset_bottom = 231.0
+offset_left = 41.0
+offset_top = 89.0
+offset_right = 1280.0
+offset_bottom = 220.0
 grow_horizontal = 2
 theme_override_colors/table_border = Color(0.4, 1, 0, 1)
 theme_override_colors/table_even_row_bg = Color(0.4, 1, 0, 1)
@@ -62,7 +62,9 @@ theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 theme_override_font_sizes/normal_font_size = 128
-text = "Scavenger    Shooter"
+bbcode_enabled = true
+text = "[pulse freq=0.7 color=#ffffff40 ease=-2.0]Scavenger    Shooter[/pulse]"
+scroll_active = false
 
 [node name="credits" type="RichTextLabel" parent="."]
 anchors_preset = 5
@@ -79,12 +81,14 @@ theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
 text = "Credits
 
-Ktosox
+[wave amp=20.0 freq=16.0 connected=1] Ktosox[/wave]
 zacPlaysGamesIGuess
 SusieCat
-Positron Games"
+Positron Games
+"
 
 [node name="play_btn" type="Button" parent="."]
 offset_left = 513.0
