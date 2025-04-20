@@ -116,11 +116,11 @@ use  thier    own   bullets   against  them
 
 [node name="Label" type="Label" parent="ui"]
 layout_mode = 0
-offset_left = 709.0
-offset_top = 238.0
-offset_right = 1249.0
-offset_bottom = 271.0
-text = "you can change input in  options  by  pressing \"q\""
+offset_left = 710.0
+offset_top = 249.0
+offset_right = 1250.0
+offset_bottom = 282.0
+text = "you can change input in  options  by  pressing  q"
 
 [node name="Label3" type="Label" parent="ui"]
 layout_mode = 0
