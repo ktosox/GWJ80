@@ -18,7 +18,7 @@ func _ready() -> void:
 	Global.load_game()
 	GameManager.set_health(3)
 	GameManager.set_score(0)
-	GameManager._update_high_score()
+	
 	
 	
 	ui.get_node("Layout/Wave").text = "Wave: "+str(wave)

@@ -2,7 +2,6 @@ extends Node
 
 signal score_changed(new_score)
 
-signal update_high_score(high_score)
 
 signal health_changed(new_health)
 
@@ -87,6 +86,3 @@ func enable_pick_up(pick_up_ : String):
 func _on_pick_up_timer_timeout() -> void:
 	pick_up_enabled = false
 	emit_signal("speed_changed", true)
-
-func _update_high_score():
-	emit_signal("update_high_score", Global.high_score)

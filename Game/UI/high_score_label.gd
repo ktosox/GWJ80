@@ -4,8 +4,8 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.connect("update_high_score", Callable(self, "update"))# Replace with function body.
-
-
-func update():
 	text = str(Global.high_score)
+
+
+
+	
