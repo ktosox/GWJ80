@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkx7vs2rcxeep"]
+[gd_scene load_steps=10 format=3 uid="uid://dkx7vs2rcxeep"]
 
 [ext_resource type="Script" uid="uid://cuj6spgg582qj" path="res://level/test_level.gd" id="1_dsqel"]
 [ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_owtjd"]
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="2_s65ib"]
 [ext_resource type="PackedScene" uid="uid://b2ov3q3k3dvys" path="res://UI/ui.tscn" id="4_owtjd"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="5_22gpc"]
-[ext_resource type="PackedScene" uid="uid://y4bakkmyhlkj" path="res://pick_up/pickup.tscn" id="6_xowea"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="7_kopq5"]
 [ext_resource type="AudioStream" uid="uid://2omqcdrp31oc" path="res://level/arcade_party.ogg" id="8_sy2wk"]
 
@@ -76,16 +75,11 @@ wait_time = 6.0
 autostart = true
 
 [node name="FixedSquare" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.0768358, 0.0768358, 0.0768358, 1)
 z_index = -10
 position = Vector2(547, 293)
 scale = Vector2(2.62233, 1.45157)
 texture = ExtResource("5_22gpc")
-
-[node name="pickup" parent="." instance=ExtResource("6_xowea")]
-position = Vector2(353, 283)
-pickup_type = 4
-randomize_pickup = false
 
 [node name="LevelMusic" parent="." instance=ExtResource("7_kopq5")]
 signal_name = "ready"

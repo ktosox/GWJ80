@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://pxm57lm46875"]
 
 [ext_resource type="Script" uid="uid://o8iw6b12gsxm" path="res://enemy/enemy_spawner.gd" id="1_cjrnn"]
-[ext_resource type="Script" uid="uid://dgc4xuxpcq0o8" path="res://enemy/enemy_package.gd" id="2_lc7nh"]
+[ext_resource type="Script" path="res://enemy/enemy_package.gd" id="2_lc7nh"]
 [ext_resource type="PackedScene" uid="uid://blbrh6jiig0us" path="res://enemy/types/basic_enemy.tscn" id="2_uihh4"]
 [ext_resource type="PackedScene" uid="uid://d27f70diafnal" path="res://enemy/enemy_core.tscn" id="3_7yjef"]
 [ext_resource type="PackedScene" uid="uid://cmlsq2g278di7" path="res://enemy/types/fast_enemy.tscn" id="3_mer2g"]

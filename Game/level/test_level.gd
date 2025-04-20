@@ -18,10 +18,11 @@ var pickup_enemy_max = 1
 func _ready() -> void:
 	#Global.save_game() 
 	#print($enemy_spawners.get_child_count())
+	
 	GameManager.set_health(3)
 	GameManager.set_score(0)
 	GameManager.pick_up_enabled =false
-	Global.load_game()
+	
 	
 	ui.get_node("Layout/Wave").text = "Wave "+str(wave)
 	
