@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d27f70diafnal"]
+[gd_scene load_steps=7 format=3 uid="uid://d27f70diafnal"]
 
 [ext_resource type="Script" uid="uid://cdq0eut7car66" path="res://enemy/enemy_core.gd" id="1_wq376"]
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="2_ifaq0"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_5l8li"]
 [ext_resource type="Texture2D" uid="uid://dhasl20m0a3su" path="res://shapes/small_line.png" id="3_cw2p4"]
+[ext_resource type="AudioStream" uid="uid://c4s7nxrfrkma0" path="res://enemy/enemy_hit.wav" id="4_wid6j"]
 
 [sub_resource type="Gradient" id="Gradient_cw2p4"]
 offsets = PackedFloat32Array(0.708543, 1)
@@ -12,6 +14,10 @@ colors = PackedColorArray(1, 1, 1, 1, 0.247059, 0.247059, 0.247059, 0)
 script = ExtResource("1_wq376")
 
 [node name="HitBox" parent="." instance=ExtResource("2_ifaq0")]
+
+[node name="AudioComponent" parent="HitBox" instance=ExtResource("3_5l8li")]
+signal_name = "hit_detected"
+audio = ExtResource("4_wid6j")
 
 [node name="Splatter" type="CPUParticles2D" parent="."]
 rotation = -2.81696

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://y4bakkmyhlkj"]
+[gd_scene load_steps=5 format=3 uid="uid://y4bakkmyhlkj"]
 
 [ext_resource type="Script" uid="uid://c6ebxhd0uhibe" path="res://pick_up/pickup.gd" id="1_anvy3"]
 [ext_resource type="Texture2D" uid="uid://cfg3cnki1onux" path="res://pick_up/plus_health_pickup.png" id="2_anvy3"]
+[ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="3_wwsn1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tmqx"]
 radius = 17.2627
@@ -17,5 +18,8 @@ shape = SubResource("CircleShape2D_0tmqx")
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_anvy3")
+
+[node name="AudioComponent" parent="." instance=ExtResource("3_wwsn1")]
+signal_name = "picked_up"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
