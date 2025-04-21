@@ -82,12 +82,12 @@ theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Credits
+text = "[wave amp=20.0 freq=16.0 connected=1]Credits[/wave]
 
 [wave amp=20.0 freq=16.0 connected=1] Ktosox[/wave]
-zacPlaysGamesIGuess
-SusieCat
-Positron Games
+[wave amp=20.0 freq=16.0 connected=1]zacPlaysGamesIGuess[/wave]
+[wave amp=20.0 freq=16.0 connected=1]SusieCat[/wave]
+[wave amp=20.0 freq=16.0 connected=1]Positron Games[/wave]
 "
 
 [node name="play_btn" type="Button" parent="."]
