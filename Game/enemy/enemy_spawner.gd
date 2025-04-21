@@ -40,6 +40,7 @@ func spawn_enemy(wave : int, spawn_pick_up : bool):
 	else:
 
 		random_from_wave = randi()%all_enemy_packages.size()
+		call_deferred("spawn_enemy",wave/map_wave_to_enemy.size(),false)
 	
 	var chosen_enemy_package = all_enemy_packages[random_from_wave]
 	chosen_enemy_package.spawn_pick_up = spawn_pick_up
@@ -94,6 +95,7 @@ func create_enemy_from_package(data : EnemyPackage) -> RigidBody2D:
 	var enemy_core = data.get_core().instantiate()
 	enemy_core.health = data.health
 	enemy_core.spawn_pick_up = data.spawn_pick_up
+	enemy_core.ID = data.ID
 	var new_walker = data.get_walker().instantiate()
 	new_walker.speed = data.walk_speed
 	var new_shooter = data.get_shooter().instantiate()

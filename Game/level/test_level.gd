@@ -22,6 +22,7 @@ func _ready() -> void:
 	GameManager.set_health(3)
 	GameManager.set_score(0)
 	GameManager.pick_up_enabled =false
+
 	
 	
 	ui.get_node("Layout/Wave").text = "Wave "+str(wave)

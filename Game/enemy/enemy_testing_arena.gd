@@ -12,7 +12,7 @@ func _ready():
 	
 
 func spawn_random_enemy():
-	var rndm_enemy = 1#randi()%$EnemySpawner.all_enemy_packages.size()
+	var rndm_enemy = 3#randi()%$EnemySpawner.all_enemy_packages.size()
 	current += 1
 	print(rndm_enemy)
 	var new_enemy = $EnemySpawner.create_enemy_from_package($EnemySpawner.all_enemy_packages[rndm_enemy])

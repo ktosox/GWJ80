@@ -2,6 +2,7 @@ extends Node2D # meant to be the child of Walker which acts as legs
 				# and the parent of everything else: hit_box, Shooter
 				# re-uses code from enemy.gd orignaly written by Positron
 @export var health = 3
+@export var ID = 0
 const ENEMY_DEATH_SCENE = preload("res://enemy/enemy_death_scene.tscn")
 const PICKUP = preload("res://pick_up/pickup.tscn")
 var spawn_pick_up : bool 
@@ -28,7 +29,10 @@ func _on_hit_box_hit_detected() -> void:
 		$Splatter.look_at(look_for_player[0].global_position)
 	$Splatter.set_deferred("emitting",true)
 	if(health <= 0):
-		GameManager.change_score(1)
+		var points = 1
+		if ID > 2:
+			points = 2
+		GameManager.change_score(points)
 		call_deferred("delete_this_enemy")
 
 	pass # Replace with function body.
