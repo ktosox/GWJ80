@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=26 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://bygki10hkju7g" path="res://player/player_hit.wav" id="4_boad6"]
 [ext_resource type="Texture2D" uid="uid://xbkisvgjxf3m" path="res://pick_up/shield_pickup.png" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://dnbdnfod66ys3" path="res://player/bang_with_cracks.ogg" id="7_2ieo8"]
 [ext_resource type="Script" uid="uid://bbes6ar5omrng" path="res://player/shield_animator.gd" id="7_boad6"]
 [ext_resource type="PackedScene" uid="uid://dbnyrqfcg7nv7" path="res://player/grabby_player_gun.tscn" id="10_8t03j"]
+[ext_resource type="Script" uid="uid://dd5er6byi7rti" path="res://Global/audio_manager/audio_component.gd" id="11_ebec5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 22.0
@@ -39,6 +41,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ExtResource("1_rkbax")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GreenCircle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 resource_name = "damage"
@@ -65,7 +79,7 @@ tracks/0/path = NodePath("DamageAnimator")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -79,7 +93,7 @@ tracks/1/path = NodePath(".:script")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [null]
@@ -91,7 +105,7 @@ tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
@@ -103,10 +117,24 @@ tracks/3/path = NodePath("GreenCircle:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(-0.0333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yw30f"]
@@ -252,6 +280,12 @@ libraries = {
 }
 script = ExtResource("4_yw30f")
 spritesRendered = 5
+
+[node name="AudioComponent" type="Node" parent="."]
+script = ExtResource("11_ebec5")
+signal_name = "on_death_detected"
+audio = ExtResource("7_2ieo8")
+metadata/_custom_type_script = "uid://dd5er6byi7rti"
 
 [node name="ShieldAnimator" type="AnimationPlayer" parent="."]
 libraries = {

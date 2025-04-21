@@ -41,9 +41,9 @@ func _on_hit_box_hit_detected() -> void:
 	if(!$ShieldAnimator.is_playing()):
 		$DamageAnimator.play("damage")
 		emit_signal("player_got_hit",-1)
-	
 
 func on_death_detected():
+	$AudioComponent.play()
 	$DamageAnimator.stop()
 	$DamageAnimator.play("death")
 

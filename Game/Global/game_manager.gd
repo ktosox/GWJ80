@@ -56,6 +56,10 @@ func set_health(new_health : int):
 	current_health = new_health
 	emit_signal("health_changed",current_health)
 
+func freeze_screen(timeToFreeze:float):
+	get_tree().paused = true
+	await get_tree().create_timer(timeToFreeze).timeout
+	get_tree().paused = false
 
 func lose_game():
 	
@@ -63,6 +67,8 @@ func lose_game():
 		Global.high_score = current_score
 		Global.save_game()
 	emit_signal("game_over")
+	freeze_screen(1.0)
+	AudioManager.stop("music")
 	await get_tree().create_timer(3).timeout
 	get_tree().current_scene.lose = true
 	
