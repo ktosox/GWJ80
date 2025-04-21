@@ -47,6 +47,7 @@ func _on_spawn_timer_timeout() -> void:
 		pickup_enemy_count = 0
 		
 func clear_enemies():
-	GameManager.change_score($enemy_group_node.get_child_count())
+	#GameManager.change_score($enemy_group_node.get_child_count())
+	#clear was too op
 	for i in $enemy_group_node.get_children():
 		i.queue_free()
