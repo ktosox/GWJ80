@@ -15,13 +15,33 @@ func _ready():
 	pass
 		
 func spawn_enemy(wave : int, spawn_pick_up : bool):
-	
+
 	#var random_enemy = randi_range(0, floor(wave/3))
 	#if(random_enemy > 2):
 		#random_enemy = randi_range(0, 2)
 	#
 	#get_enemy(random_enemy, spawn_pick_up)
-	var chosen_enemy_package = all_enemy_packages[min(max(0,wave-2+randi()%2), 3)]
+	var random_from_wave = 0
+	var map_wave_to_enemy = {
+		1: [0],
+		2: [0,1,1],
+		3: [2,2,1],
+		4: [3,3,0,0],
+		5: [3,3,1,2],
+		6: [4,4,0,1],
+		7: [4,4,1,2],
+		8: [4,4,4,3,3]
+		
+	}
+	if map_wave_to_enemy.has(wave):
+		
+		random_from_wave = map_wave_to_enemy[wave][randi()%map_wave_to_enemy[wave].size()]
+		print("random_from_wave: ",random_from_wave,", map_wave_to_enemy[wave]: ",map_wave_to_enemy[wave])
+	else:
+
+		random_from_wave = randi()%all_enemy_packages.size()
+	
+	var chosen_enemy_package = all_enemy_packages[random_from_wave]
 	chosen_enemy_package.spawn_pick_up = spawn_pick_up
 	var new_enemy = create_enemy_from_package(chosen_enemy_package)
 	await get_tree().create_timer(0.5).timeout # give it a moment to prevent an error

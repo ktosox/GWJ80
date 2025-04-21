@@ -1,8 +1,10 @@
 extends Node2D
 
-@export var possible_enemies : Array[EnemyPackage]
+#@export var possible_enemies : Array[EnemyPackage]
+var current = 0
 
 func _ready():
+	
 	spawn_random_enemy()
 	GameManager.set_health(20)
 	pass
@@ -10,7 +12,10 @@ func _ready():
 	
 
 func spawn_random_enemy():
-	var new_enemy = create_enemy_from_package(possible_enemies[randi()%possible_enemies.size()])
+	var rndm_enemy = 1#randi()%$EnemySpawner.all_enemy_packages.size()
+	current += 1
+	print(rndm_enemy)
+	var new_enemy = $EnemySpawner.create_enemy_from_package($EnemySpawner.all_enemy_packages[rndm_enemy])
 	await get_tree().create_timer(0.5).timeout
 	new_enemy.global_position = $SpawnPoint.global_position
 	add_child(new_enemy)

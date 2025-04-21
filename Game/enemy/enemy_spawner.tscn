@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://pxm57lm46875"]
+[gd_scene load_steps=14 format=3 uid="uid://pxm57lm46875"]
 
 [ext_resource type="Script" uid="uid://o8iw6b12gsxm" path="res://enemy/enemy_spawner.gd" id="1_cjrnn"]
-[ext_resource type="Script" path="res://enemy/enemy_package.gd" id="2_lc7nh"]
+[ext_resource type="Script" uid="uid://dgc4xuxpcq0o8" path="res://enemy/enemy_package.gd" id="2_lc7nh"]
 [ext_resource type="PackedScene" uid="uid://blbrh6jiig0us" path="res://enemy/types/basic_enemy.tscn" id="2_uihh4"]
 [ext_resource type="PackedScene" uid="uid://d27f70diafnal" path="res://enemy/enemy_core.tscn" id="3_7yjef"]
 [ext_resource type="PackedScene" uid="uid://cmlsq2g278di7" path="res://enemy/types/fast_enemy.tscn" id="3_mer2g"]
@@ -13,35 +13,35 @@
 script = ExtResource("2_lc7nh")
 ID = 0
 walk_speed = 50
-health = 3
+health = 1
 enemy_core = ExtResource("3_7yjef")
 spawn_pick_up = false
 walker_type = 0
 shooter_type = 0
 guns = Array[PackedScene]([ExtResource("4_sm0a0")])
-bullet_speed = 200
-attack_speed = 2.4
+bullet_speed = 180
+attack_speed = 0.65
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
-[sub_resource type="Resource" id="Resource_rc4g1"]
+[sub_resource type="Resource" id="Resource_y0occ"]
 script = ExtResource("2_lc7nh")
-ID = 1
-walk_speed = 40
+ID = 3
+walk_speed = 80
 health = 2
 enemy_core = ExtResource("3_7yjef")
 spawn_pick_up = false
 walker_type = 1
-shooter_type = 0
-guns = Array[PackedScene]([ExtResource("4_sm0a0"), ExtResource("4_sm0a0")])
-bullet_speed = 140
-attack_speed = 0.75
+shooter_type = 1
+guns = Array[PackedScene]([ExtResource("4_sm0a0")])
+bullet_speed = 190
+attack_speed = 1.4
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
 [sub_resource type="Resource" id="Resource_ri37s"]
 script = ExtResource("2_lc7nh")
 ID = 2
-walk_speed = 120
-health = 3
+walk_speed = 190
+health = 2
 enemy_core = ExtResource("3_7yjef")
 spawn_pick_up = false
 walker_type = 0
@@ -51,23 +51,37 @@ bullet_speed = 160
 attack_speed = 1.4
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
-[sub_resource type="Resource" id="Resource_y0occ"]
+[sub_resource type="Resource" id="Resource_rc4g1"]
 script = ExtResource("2_lc7nh")
-ID = 3
-walk_speed = 60
-health = 5
+ID = 1
+walk_speed = 30
+health = 3
 enemy_core = ExtResource("3_7yjef")
 spawn_pick_up = false
 walker_type = 1
+shooter_type = 0
+guns = Array[PackedScene]([ExtResource("4_sm0a0"), ExtResource("4_sm0a0")])
+bullet_speed = 130
+attack_speed = 0.2
+metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
+
+[sub_resource type="Resource" id="Resource_sm0a0"]
+script = ExtResource("2_lc7nh")
+ID = 0
+walk_speed = 300
+health = 4
+enemy_core = ExtResource("3_7yjef")
+spawn_pick_up = false
+walker_type = 0
 shooter_type = 1
 guns = Array[PackedScene]([ExtResource("4_sm0a0")])
-bullet_speed = 240
-attack_speed = 1.0
+bullet_speed = 360
+attack_speed = 1.2
 metadata/_custom_type_script = "uid://dgc4xuxpcq0o8"
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_cjrnn")
-all_enemy_packages = Array[ExtResource("2_lc7nh")]([SubResource("Resource_tfkbl"), SubResource("Resource_rc4g1"), SubResource("Resource_ri37s"), SubResource("Resource_y0occ")])
+all_enemy_packages = Array[ExtResource("2_lc7nh")]([SubResource("Resource_tfkbl"), SubResource("Resource_y0occ"), SubResource("Resource_ri37s"), SubResource("Resource_rc4g1"), SubResource("Resource_sm0a0")])
 basic_enemy_scene = ExtResource("2_uihh4")
 fast_enemy_scene = ExtResource("3_mer2g")
 strong_enemy_scene = ExtResource("4_82mlf")
