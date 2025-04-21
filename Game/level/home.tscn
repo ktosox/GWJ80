@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvu6laxd2jovo"]
+[gd_scene load_steps=12 format=3 uid="uid://cvu6laxd2jovo"]
 
 [ext_resource type="Script" uid="uid://pqtmru4m3fvp" path="res://level/home.gd" id="1_8xs47"]
 [ext_resource type="PackedScene" uid="uid://cwlb4xi71bwxx" path="res://UI/screen_shader.tscn" id="1_qhqtf"]
 [ext_resource type="Shader" uid="uid://dcu3mpmaqkp33" path="res://UI/screen_shader.gdshader" id="2_g5ubw"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="3_g5ubw"]
 [ext_resource type="FontFile" uid="uid://kia36owq73kx" path="res://ARCADECLASSIC.TTF" id="4_0faah"]
+[ext_resource type="Texture2D" uid="uid://hskmocj6c5c8" path="res://hi.png" id="6_xvayq"]
+[ext_resource type="Texture2D" uid="uid://75adm4i8x4jj" path="res://simple-geometry.png" id="7_mrygq"]
+[ext_resource type="Texture2D" uid="uid://cl86skcvpcwi3" path="res://Wildcard-man.png" id="8_0wbbl"]
+[ext_resource type="Texture2D" uid="uid://1a2fw4t4auva" path="res://screenwriting-101.png" id="9_kf03a"]
 
 [sub_resource type="Environment" id="Environment_0faah"]
 background_mode = 3
@@ -98,5 +102,26 @@ offset_bottom = 364.0
 theme_override_fonts/font = ExtResource("4_0faah")
 theme_override_font_sizes/font_size = 32
 text = "Play"
+
+[node name="Hi" type="Sprite2D" parent="."]
+position = Vector2(400, 566)
+texture = ExtResource("6_xvayq")
+
+[node name="Simple-geometry" type="Sprite2D" parent="."]
+position = Vector2(1225, 644)
+scale = Vector2(0.0767442, 0.0755814)
+texture = ExtResource("7_mrygq")
+
+[node name="Wildcard-man" type="Sprite2D" parent="."]
+self_modulate = Color(0.355314, 0.355314, 0.355314, 1)
+position = Vector2(1149, 644)
+scale = Vector2(0.0755815, 0.0751662)
+texture = ExtResource("8_0wbbl")
+
+[node name="Screenwriting-101" type="Sprite2D" parent="."]
+self_modulate = Color(0.362829, 0.362829, 0.362829, 1)
+position = Vector2(1076, 644)
+scale = Vector2(0.0738372, 0.0730897)
+texture = ExtResource("9_kf03a")
 
 [connection signal="button_down" from="play_btn" to="." method="_on_play_btn_button_down"]

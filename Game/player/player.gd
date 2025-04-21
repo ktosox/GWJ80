@@ -41,6 +41,10 @@ func _on_hit_box_hit_detected() -> void:
 	if(!$ShieldAnimator.is_playing()):
 		$DamageAnimator.play("damage")
 		emit_signal("player_got_hit",-1)
+		if GameManager.current_health > 0:
+			$Splatter.look_at($HitBox.lastBulletToHitPosition * -1)
+			$Splatter.set_deferred("emitting",true)
+
 
 func on_death_detected():
 	$AudioComponent.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d5145be76quu"]
+[gd_scene load_steps=28 format=3 uid="uid://d5145be76quu"]
 
 [ext_resource type="PackedScene" uid="uid://c27urcanyot1m" path="res://hit_box/hit_box.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c15fwp6rrgd6o" path="res://player/player.gd" id="1_rkbax"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://df377qirbaqj5" path="res://player/damage_animator.gd" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://dnbdnfod66ys3" path="res://player/bang_with_cracks.ogg" id="7_2ieo8"]
 [ext_resource type="Script" uid="uid://bbes6ar5omrng" path="res://player/shield_animator.gd" id="7_boad6"]
+[ext_resource type="Texture2D" uid="uid://dhasl20m0a3su" path="res://shapes/small_line.png" id="8_ebec5"]
 [ext_resource type="PackedScene" uid="uid://dbnyrqfcg7nv7" path="res://player/grabby_player_gun.tscn" id="10_8t03j"]
 [ext_resource type="Script" uid="uid://dd5er6byi7rti" path="res://Global/audio_manager/audio_component.gd" id="11_ebec5"]
 
@@ -143,6 +144,10 @@ _data = {
 &"damage": SubResource("Animation_rkbax"),
 &"death": SubResource("Animation_yw30f")
 }
+
+[sub_resource type="Gradient" id="Gradient_yllr7"]
+offsets = PackedFloat32Array(0.708543, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.247059, 0.247059, 0.247059, 0)
 
 [sub_resource type="Animation" id="Animation_boad6"]
 length = 0.001
@@ -280,6 +285,31 @@ libraries = {
 }
 script = ExtResource("4_yw30f")
 spritesRendered = 5
+
+[node name="Splatter" type="CPUParticles2D" parent="."]
+rotation = -2.81696
+scale = Vector2(1, 1)
+emitting = false
+amount = 14
+texture = ExtResource("8_ebec5")
+lifetime = 0.9
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 201.79
+initial_velocity_max = 304.93
+damping_min = 4.933
+damping_max = 19.283
+scale_amount_min = 0.15
+scale_amount_max = 0.5
+color = Color(0.231373, 0.831373, 0.294118, 1)
+color_ramp = SubResource("Gradient_yllr7")
+hue_variation_min = 0.21
+hue_variation_max = 0.21
 
 [node name="AudioComponent" type="Node" parent="."]
 script = ExtResource("11_ebec5")

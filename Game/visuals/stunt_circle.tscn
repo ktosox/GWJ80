@@ -10,7 +10,7 @@ radius = 114.286
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("1_1agsa")
 script = ExtResource("2_ipx2s")
-minimumDeathAnimationMomentum = 0
+minimumDeathAnimationMomentum = 500
 maximumDeathAnimationMomentum = 999
 vacuumAnimationSpeed = 200
 
