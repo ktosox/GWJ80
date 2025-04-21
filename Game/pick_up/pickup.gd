@@ -32,7 +32,8 @@ const GRAVITY_FX = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if randomize_pickup:
-		pickup_type = randi_range(0,Pickup.size())
+		pickup_type = randi_range(0,Pickup.size()-1)
+
 	if(pickup_type == Pickup.health):
 		$CollisionShape2D/Sprite2D.texture = PLUS_HEALTH_PICKUP["image"]
 		$AudioComponent.audio = PLUS_HEALTH_PICKUP["sound"]

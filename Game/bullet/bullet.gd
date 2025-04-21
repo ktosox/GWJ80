@@ -12,6 +12,8 @@ func _on_body_entered(body: Node) -> void:
 	queue_free()
 	pass # Replace with function body.
 
+func _physics_process(delta: float) -> void:
+	$Line2D
 
 #func _on_player_detector_body_entered(body: Node2D) -> void:
 #	if !active:
