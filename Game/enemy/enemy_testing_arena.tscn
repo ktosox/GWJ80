@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3mwtk3b6sd6a"]
 
 [ext_resource type="PackedScene" uid="uid://d5145be76quu" path="res://player/player.tscn" id="1_727aj"]
-[ext_resource type="Script" path="res://enemy/enemy_testing_arena.gd" id="1_o4all"]
-[ext_resource type="Script" path="res://enemy/enemy_package.gd" id="2_25moa"]
+[ext_resource type="Script" uid="uid://byfx461rtc2qi" path="res://enemy/enemy_testing_arena.gd" id="1_o4all"]
+[ext_resource type="Script" uid="uid://dgc4xuxpcq0o8" path="res://enemy/enemy_package.gd" id="2_25moa"]
 [ext_resource type="PackedScene" uid="uid://lifkfy1d37r0" path="res://enemy/single_gun.tscn" id="3_6o5hp"]
 [ext_resource type="PackedScene" uid="uid://d27f70diafnal" path="res://enemy/enemy_core.tscn" id="3_r4ucg"]
 

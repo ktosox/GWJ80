@@ -2,11 +2,14 @@ extends Node2D # meant to be the child of Walker which acts as legs
 				# and the parent of everything else: hit_box, Shooter
 				# re-uses code from enemy.gd orignaly written by Positron
 @export var health = 3
-
+const ENEMY_DEATH_SCENE = preload("res://enemy/enemy_death_scene.tscn")
 const PICKUP = preload("res://pick_up/pickup.tscn")
 var spawn_pick_up : bool 
 
 func delete_this_enemy():
+	var death_animation = ENEMY_DEATH_SCENE.instantiate()
+	death_animation.global_position = global_position
+	get_tree().current_scene.add_child(death_animation)
 	if(spawn_pick_up):
 		var pick_up = PICKUP.instantiate()
 		get_tree().current_scene.add_child(pick_up)
