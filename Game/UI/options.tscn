@@ -61,6 +61,7 @@ text = "sound fx"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="audioLabel/sound fx/Label"]
 stream = ExtResource("4_cubmi")
+bus = &"sound fx"
 
 [node name="music" parent="audioLabel" instance=ExtResource("2_q8egh")]
 layout_mode = 0
