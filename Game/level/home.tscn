@@ -91,7 +91,7 @@ text = "Credits
 [wave amp=20.0 freq=16.0 connected=1] Ktosox[/wave]
 zacPlaysGamesIGuess 
 SusieCat
-Positron Games
+[wave amp=20.0 freq=16.0 connected=1] Positron Games[/wave]
 "
 
 [node name="play_btn" type="Button" parent="."]

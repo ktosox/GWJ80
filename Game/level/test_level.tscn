@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkx7vs2rcxeep"]
+[gd_scene load_steps=10 format=3 uid="uid://dkx7vs2rcxeep"]
 
 [ext_resource type="Script" uid="uid://cuj6spgg582qj" path="res://level/test_level.gd" id="1_dsqel"]
 [ext_resource type="PackedScene" uid="uid://pxm57lm46875" path="res://enemy/enemy_spawner.tscn" id="2_owtjd"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b2ov3q3k3dvys" path="res://UI/ui.tscn" id="4_owtjd"]
 [ext_resource type="Texture2D" uid="uid://c6whu1ryhn42r" path="res://shapes/fixed square.png" id="5_22gpc"]
 [ext_resource type="PackedScene" uid="uid://bgr7f0ikfr1cw" path="res://Global/audio_manager/audio_component.tscn" id="7_kopq5"]
-[ext_resource type="PackedScene" uid="uid://y4bakkmyhlkj" path="res://pick_up/pickup.tscn" id="8_kopq5"]
 [ext_resource type="AudioStream" uid="uid://2omqcdrp31oc" path="res://level/arcade_party.ogg" id="8_sy2wk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amuej"]
@@ -86,11 +85,6 @@ texture = ExtResource("5_22gpc")
 signal_name = "ready"
 audio_type = "music"
 audio = ExtResource("8_sy2wk")
-
-[node name="pickup" parent="." instance=ExtResource("8_kopq5")]
-position = Vector2(339, 401)
-pickup_type = 3
-randomize_pickup = false
 
 [connection signal="timeout" from="wave_timer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
